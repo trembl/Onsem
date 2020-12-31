@@ -1,13 +1,14 @@
 /*
 Theme Name: Onsem
 Theme URI:
-Description: 
-Author: 
-Version: 1.0
+Description:
+Author:
+Version: 2.0
 License:
-License URI: 
+License URI:
 Tags:
 */
 
-@import url('styles/reset.css');
+@import url("https://use.typekit.net/mhw5cxw.css");
+@import url('styles/tachyons.min.css');
 @import url('styles/onsem.css');
