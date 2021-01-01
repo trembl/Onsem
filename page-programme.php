@@ -21,8 +21,7 @@ $posts = get_posts(array(
   'order'          => 'ASC',
 ));
 
-if($posts) {
-
+if ($posts) {
 
   echo '<table>'."\n";
 

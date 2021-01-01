@@ -12,10 +12,10 @@ $(document).ready(function() {
   $('#yearselect').change(function(e) {
     var v = $(this).val()
     if (v === 'all') {
-      $('.teilnehmer a').show()
+      $('.teilnehmer a').show() // show all
     } else {
-      $('.teilnehmer a').hide()
-      $('.y' + v).show()
+      $('.teilnehmer a').hide() // hide all
+      $('.y' + v).show()        // show only selected
     }
   })
 })
@@ -36,17 +36,14 @@ foreach (wp_get_nav_menu_items('author-menu') as $m) {
 
 <?php
 
-$speakers = array();
-$output = array();
-$allYears = array();
 
-// get all posts with filled out 'vortragender'
+// get all posts where ACF array field 'vortragende' is not empty
 $allPosts = get_posts(array(
   'numberposts' => -1,
   'post_type'   => 'page',
   'meta_query'  => array(
     array(
-      'key'     => 'vortragender',
+      'key'     => 'vortragende',   // check if array is not empty
       'compare' => '!=',
       'value'   => '',
     )
@@ -54,32 +51,44 @@ $allPosts = get_posts(array(
 ));
 
 // make speaker array
+$cleaned = array();
+$allYears = array();
 foreach ($allPosts as $p) {
-  $speakers[] = trim(get_field('vortragender', $p));
+  $vortragende = get_field('vortragende', $p);
+  foreach ($vortragende as $v) {
+    if ( empty($cleaned[$v['vortragender']]) ) {
+      $cleaned[$v['vortragender']] = array();
+    }
+    $year = date('Y', strtotime(get_field('datum_und_uhrzeit', $p)));
+    $allYears[] = $year;
+
+    $cleaned[$v['vortragender']][] = array(
+      'id'   => $p->ID,
+      'year' => $year
+    );
+  }
 }
+ksort($cleaned);  // sort alphabetically
 
-$speakers = array_unique($speakers);    // make unique
-$speakers = array_filter($speakers);    // remove empty
-sort($speakers);                        // sort by first name
+// Get number of apperances and years
+$output = array();
+foreach ($cleaned as $name => $yearArray) {
 
-// get number of apperances
-foreach ($speakers as $s) {
-  $posts = get_posts(array(
-    'numberposts' => -1,
-    'post_type'   => 'page',
-    'meta_key'    => 'vortragender',
-    'meta_value'  => $s
-  ));
   $years = array();
-  foreach ($posts as $p) {
-    $years[] = 'y' . date('Y', strtotime($p->post_date));
-    $allYears[] = date('Y', strtotime($p->post_date));
+  foreach ($yearArray as $a) {
+    $years[] = 'y' . $a['year'];
   }
   $years = array_unique($years);    // make unique
-  rsort($years);
+  sort($years);
   $y = implode(' ', $years);
-  $output[] = "\n    <a href='' class='$y'>$s<sup>" . count($posts) . "</sup></a>";
+
+  $link = get_site_url() . "/teilnehmer/" . urlencode($name);
+
+  $output[] = "\n    <a href='$link' class='$y'>$name<sup>" . count($yearArray) . "</sup></a>";
 }
+
+
+
 
 
 
@@ -91,19 +100,19 @@ foreach ($speakers as $s) {
 
 
   $allYears = array_unique($allYears);    // make unique
-  sort($allYears);
-  $options = array();
+  rsort($allYears);
+  $optionsOutput = array();
   foreach ($allYears as $y) {
-    $options[] = "    <option value=\"$y\">$y</option>\n";
+    $optionsOutput[] = "    <option value=\"$y\">$y</option>\n";
   }
-  echo implode("", $options);
+  echo implode("", $optionsOutput);
 
 
 ?>
   </select>
 
-  <div class="teilnehmer body">
-<?php echo implode('', $output); ?>
+  <div class="teilnehmer body"><?php echo implode('', $output); ?>
+
   </div>
 </div>
 

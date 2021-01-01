@@ -18,11 +18,8 @@ foreach (wp_get_nav_menu_items('navigation-menu') as $m) {
 ?>
       </div>
 
-      <div id="title">
-        <div class="medium">29. Seminar zur österreichischen Gegenwartsliteratur (auf Zoom)</div>
-        <div id="title_jp">
-          オーストリア現代文学ゼミナール
-        </div>
-        <div>12. und 13. Dezember 2020. Mit <a href="<?php echo home_url(); ?>">Daniel Wisser</a></div>
+      <div id="title" class="center">
+        <div class="medium">Seminar zur österreichischen Gegenwartsliteratur</div>
+        <div id="title_jp">オーストリア現代文学ゼミナール</div>
       <div>
     </header>

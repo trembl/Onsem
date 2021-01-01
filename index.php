@@ -12,11 +12,8 @@ if ($vortragender) {
 } ?>
 </div>
 
-
-<?php  the_content(); ?>	
+<?php the_content(); ?>
 <?php endwhile; ?>
 </div>
-	
-<?php 
-get_sidebar();
-get_footer(); ?>
+
+<?php get_footer(); ?>

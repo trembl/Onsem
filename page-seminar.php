@@ -5,7 +5,10 @@ Template Name: Seminar
 
 get_header(); ?>
 
+
+
 <div>
+  <h1>Daniel Wisser</h1> Programm
   <div class="body text">
     <div class="row">
       <div class="column">
@@ -63,29 +66,7 @@ get_header(); ?>
 </div>
 
 
-<?php /*
-<div class="articlecolumn" id="bilder">
-<?php while ( have_posts() ) : the_post(); ?>
-<div class="articlehead">
-<?php
-the_title();
-edit_post_link('*');
-?>
-</div>
-
-<?php wp_link_pages('before=<div>&after=</div>'); ?>
-<br />
-
-<?php  the_content(); ?>
-
-<br />
-<?php wp_link_pages('before=<div>&after=</div>'); ?>
-
-
-<?php endwhile; ?>
-</div>
-
-*/ ?>
+<?php showProgramme($post); ?>
 
 <?php
 get_footer();
