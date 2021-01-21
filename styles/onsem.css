@@ -48,6 +48,12 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  font-size: 2em;
+  font-weight: 300;
+  text-align: center;
+}
+
 .body {
   font-size: 2em;
 }

@@ -8,7 +8,8 @@ get_header(); ?>
 
 
 <div>
-  <h1>Daniel Wisser</h1> Programm
+  <h2>29. Seminar, 12. und 13. Dezember 2020, <a href="#programm">Programm</a></h2>
+  <h1>Daniel Wisser</h1>
   <div class="body text">
     <div class="row">
       <div class="column">

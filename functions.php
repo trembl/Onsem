@@ -183,7 +183,7 @@ function showProgramme($seminarPage) {
 
   if ($posts) {
 
-    echo '<table>'."\n";
+    echo '<table id="programm">'."\n";
 
     $day = "";
     foreach( $posts as $post ) {
