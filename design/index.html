@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Onsem - Seminar zur österreichischen Gegenwartsliteratur</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="tachyons.min.css">
+  <link rel="stylesheet" href="https://use.typekit.net/mhw5cxw.css">
+  <style media="screen">
+
+html {
+  background: #C3F571;
+  color: #000;
+  font-size: max(2vh, 10px);
+  font-family: neue-haas-grotesk-text, 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+}
+
+/* general */
+body {
+  padding: 0em;
+  margin: 0;
+}
+
+.body {
+  padding: 0em 2em;
+
+}
+
+.page {
+  padding: 0em;
+}
+
+header {
+  padding-bottom: 2em;
+  font-size: 1.5em;
+}
+
+.menu {
+  padding: 1em 2em;
+  font-size: 0.85em;
+  font-weight: 500;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between; /* Can be changed in the live sample */
+
+}
+.menu a {
+  content: "a";
+}
+
+.page header #title {
+  font-size: 2em;
+  padding: 0.5em;
+  padding-top: 0.25em;
+  text-align: center;
+}
+
+.page header #title_jp {
+  /* writing-mode: vertical-rl; */
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: 500;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: 100;
+  text-align: center;
+}
+
+.body {
+  font-size: 2em;
+}
+
+.body.text, #title {
+  font-size: 1.25em;
+  font-weight: 500;
+}
+
+
+
+.body.archiv {
+  font-size: 1em;
+  text-align: center;
+}
+.body.archiv .autoren {
+  font-size: 3em;
+}
+.body.archiv .autoren a {
+  display: block;
+}
+
+.body.archiv .teilnehmer {
+  font-size: 1.75em;
+  display: inline;
+}
+
+
+
+.regular  { font-weight: 400; }
+.medium   { font-weight: 500; }
+.bold     { font-weight: 700; }
+.italic   { font-style: italic; }
+.center   { text-align: center; }
+.gray     { color: #999; }
+
+a, a:visited {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:hover {
+  color: #33f;
+  text-decoration: underline;
+}
+a:active {
+  color: #fff;
+  background: #33f;
+  text-decoration: none;
+}
+/*
+#title a {
+  color: #33f;
+  text-decoration: underline;
+}
+#title a:hover {
+  color: #33f;
+  text-decoration: underline;
+}
+#title a:active {
+  color: #fff;
+  background: #33f;
+  text-decoration: underline;
+}
+*/
+
+sup {
+  font-weight: 700;
+}
+
+.sel {
+  color: white;
+  background: #00f;
+
+}
+/*
+::selection {
+  color: white;
+  background: linear-gradient(#aaa, #ccc);
+}
+*/
+
+::selection {
+  color: black;
+  background: #0ff;
+}
+
+footer {
+  margin-top: 5em;
+  font-size: 1.5em;
+}
+
+footer #copyright {
+  text-align: center;
+}
+
+select {
+  border: none;
+  background-color: rgba(255,255,255,0);
+  /* text-decoration: underline; */
+  font-weight: 500;
+  font-size: 1.75em;
+}
+
+.select {
+  border: none;
+}
+
+.row  {
+  display: flex;
+}
+
+.row .column {
+  flex: 50%;
+}
+
+.row .column1 {
+  padding-right: 0.5em;
+}
+.row .column2 {
+  padding-left: 0.5em;
+}
+
+
+.column img {
+  display: block;
+  width: 100%;
+}
+
+.byline {
+  font-size: 0.75em;
+  font-weight: 400;
+  text-align: right;
+  padding-top: 0.25em;
+  padding-bottom: 2em;
+}
+
+table {
+  width: 100%;
+  font-size: 1em;
+  font-weight: 500;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+tr, td {
+  border: 1px solid black;
+  padding: 0.25em;
+}
+
+/* Header Menu */
+header .menu {
+  background-color: #fff;
+}
+
+
+@media (max-width: 769px) {
+  .row  {
+    display: block;
+  }
+
+  .row .column {
+    flex: auto;
+  }
+
+  .row .column1 {
+    padding-right: 0;
+  }
+  .row .column2 {
+    padding-left: 0;
+  }
+  .column img {
+    padding-top: 1em;
+  }
+
+}
+
+#senden {
+  float: right;
+  font-size: 0.5em;
+  opacity: 0.2;
+}
+
+  </style>
+</head>
+<body>
+  <div class="page w-100 pa4">
+    <header>
+      <div class="menu">
+        <a href="">♨️Onsem📖</a> &nbsp;
+        <a href="">Organisation</a> &nbsp;
+        <a href="">Nozawa Onsen</a> &nbsp;
+        <a href="">Mailing List</a> &nbsp;
+        <a href="">Kontakt</a> &nbsp;
+        <a href="">Links</a> &nbsp;
+        <a href="">Archiv</a>
+      </div>
+      <div id="title">
+        <div class="medium">31. Seminar zur österreichischen Gegenwartsliteratur</div>
+        <div id="title_jp">オーストリア現代文学ゼミナール</div>
+        16. Dezember 2022. 15:00 - 19:00<br />Mit <a href="">Karl Lubomirski </a>
+      <div>
+    </header>
+    <!-- END header.php -->
+
+    <div class="body text">
+      <div class="row">
+
+        <div class="column column1">
+          <p>
+          Program↘︎
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in
+          voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt
+        </p>
+          <h3 class="center">Programm</h3>
+
+          in culpa qui officia deserunt mollit anim id est laborum.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud
+
+          <h3 class="center">Programm</h3>
+
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in
+          voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt
+          in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+
+        <div class="column column2">
+          <img src="http://www.onsem.info/wp-content/themes/onsem/images/autoren/Daniel_Wisser_2020.jpg"  />
+
+          <div class="byline"><strong>Julya Rabinowich</strong> Foto: ©Arnold Pöschl</div>
+
+          <h4 class="center">Programm</h4>
+          <table>
+            <tr>
+              <td class="center" colspan="3">Österreichisches Kulturforum Tokio ⍈</td>
+            </tr>
+            <tr>
+              <td class="center italic" colspan="3">Freitag, 13. November 2020</td>
+            </tr>
+            <tr>
+              <td>10:00</td>
+              <td>Lorem ipsum dolor sit amet, <em>consectetur</em> adipisicing elit</td>
+              <td>Walter Vogl</td>
+            </tr>
+            <tr>
+              <td>10:00</td>
+              <td colspan="2">Pause</td>
+            </tr>
+            <tr>
+              <td>10:05</td>
+              <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit</td>
+              <td>Walter Vogl</td>
+            </tr>
+            <tr>
+              <td>11:30</td>
+              <td><a hre="njk">Lfsfforem ipsum dolor sit amet, consectetur adipisicing elit</a></td>
+              <td><a hre="njk">Walter Vogl</a></td>
+            </tr>
+            <tr>
+              <td class="center" colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="center" colspan="3">Sofia Universität ⍈</td>
+            </tr>
+            <tr>
+              <td class="center italic" colspan="3">Freitag, 14. November 2020</td>
+            </tr>
+            <tr>
+              <td>10:00</td>
+              <td class="regular">Lorem ipsum dolor sit amet, <em>consectetur</em> adipisicing elit</td>
+              <td>Walter Vogl</td>
+            </tr>
+            <tr>
+              <td>10:00</td>
+              <td colspan="2" class="regular">Pause</td>
+            </tr>
+            <tr>
+              <td>10:00</td>
+              <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit</td>
+              <td>Walter Vogl</td>
+            </tr>
+            <tr>
+              <td>10:00</td>
+              <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit</td>
+              <td>Walter Vogl</td>
+            </tr>
+          </table>
+
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="body archiv">
+      <h1>Archiv</h1>
+      <div class="autoren">
+        <a href="">2019 Thomas Stangl</a>
+        <a href="">2018 Raoul Schrott</a>
+        <a href="">2017 Reinhard Kaiser-Mühlecker</a>
+        <a href="" style="background-color:#ff0;">2016 Clemens J. Setz</a>
+        <a href=""style="background-color:#f0f;">2015 Christoph Ransmayr</a>
+        <a href="">2019 Thomas Stangl</a>
+        <a href="">2018 Raoul Schrott</a>
+        <a href="">2019 Thomas Stangl</a>
+        <a href="">2018 Raoul Schrott</a>
+      </div>
+
+      <h1>Teilnehmer</h1>
+      <select>
+        <option value="All">2005 - 2022</option>
+        <option value="2021">2021</option>
+        <option value="2020">2020</option>
+        <option value="2015">2019</option>
+        <option value="2015">2018</option>
+        <option value="2015">2017</option>
+        <option value="2015">2016</option>
+        <option value="2015">2015</option>
+        <option value="2020">2020</option>
+        <option value="2015">2019</option>
+        <option value="2015">2018</option>
+        <option value="2015">2017</option>
+        <option value="2015">2016</option>
+        <option value="2015">2015</option>
+        <option value="2020">2020</option>
+        <option value="2015">2019</option>
+        <option value="2015">2018</option>
+        <option value="2015">2017</option>
+        <option value="2015">2016</option>
+        <option value="2015">2015</option>
+      </select>
+      <div class="teilnehmer">
+        ,
+        <a href="">Thomas Stangl<sup>2</sup></a>,
+        <a href="">Raoul Schrott<sup>10</sup></a>,
+        <a href="">Reinhard Kaiser-Mühlecker<sup>7</sup></a>,
+        <a href="">Clemens J. Setz<sup>8</sup></a>,
+        <a href="">Christoph Ransmayr<sup>8</sup></a>,
+        <a href="">Thomas Stangl<sup>8</sup></a>,
+        <a href="">Raoul Schrott<sup>12</sup></a>,
+        <a href="">Thomas Stangl<sup>8</sup></a>,
+        <a href="">Raoul Schrott<sup>14</sup></a>,
+        <a href="">Thomas Stangl<sup>8</sup></a>,
+        <a href="">Raoul Schrott<sup>11</sup></a>,
+        <a href="">Reinhard Kaiser-Mühlecker<sup>8</sup></a>,
+        <a href="">Clemens J. Setz<sup>8</sup></a>,
+        <a href="">Christoph Ransmayr<sup>8</sup></a>,
+        <a href="">Thomas Stangl<sup>12</sup></a>,
+        <a href="">Raoul Schrott<sup>18</sup></a>,
+        <a href="">Thomas Stangl<sup>8</sup></a>,
+        <a href="">Christoph Ransmayr<sup>8</sup></a>,
+        <a href="">Thomas Stangl<sup>8</sup></a>,
+        <a href="">Raoul Schrott<sup>12</sup></a>,
+        <a href="">Thomas Stangl<sup>8</sup></a>,
+        <a href="">Raoul Schrott<sup>14</sup></a>,
+        <a href="">Thomas Stangl<sup>8</sup></a>,
+        <a href="">Raoul Schrott<sup>11</sup></a>,
+        <a href="">Reinhard Kaiser-Mühlecker<sup>8</sup></a>,
+        <a href="">Clemens J. Setz<sup>8</sup></a>,
+        <a href="">Christoph Ransmayr<sup>8</sup></a>,
+        <a href="">Thomas Stangl<sup>12</sup></a>,
+        <a href="">Raoul Schrott<sup>18</sup></a>,
+        <a href="">Thomas Stangl<sup>8</sup></a>,
+        <a href="">Christoph Ransmayr<sup>8</sup></a>,
+        <a href="">Thomas Stangl<sup>8</sup></a>,
+        <a href="">Raoul Schrott<sup>12</sup></a>,
+        <a href="">Thomas Stangl<sup>8</sup></a>,
+        <a href="">Raoul Schrott<sup>14</sup></a>,
+        <a href="">Thomas Stangl<sup>8</sup></a>,
+        <a href="">Raoul Schrott<sup>11</sup></a>,
+        <a href="">Reinhard Kaiser-Mühlecker<sup>8</sup></a>,
+        <a href="">Clemens J. Setz<sup>8</sup></a>,
+        <a href="">Christoph Ransmayr<sup>8</sup></a>,
+        <a href="">Thomas Stangl<sup>12</sup></a>,
+        <a href="">Raoul Schrott<sup>18</sup></a>,
+        <a href="">Thomas Stangl<sup>8</sup></a>,
+        <a href="">Christoph Ransmayr<sup>8</sup></a>,
+        <a href="">Thomas Stangl<sup>8</sup></a>,
+        <a href="">Raoul Schrott<sup>12</sup></a>,
+        <a href="">Thomas Stangl<sup>8</sup></a>,
+        <a href="">Raoul Schrott<sup>14</sup></a>,
+        <a href="">Thomas Stangl<sup>8</sup></a>,
+        <a href="">Raoul Schrott<sup>11</sup></a>,
+        <a href="">Reinhard Kaiser-Mühlecker<sup>8</sup></a>,
+        <a href="">Clemens J. Setz<sup>8</sup></a>,
+        <a href="">Christoph Ransmayr<sup>8</sup></a>,
+        <a href="">Thomas Stangl<sup>12</sup></a>,
+        <a href="">Raoul Schrott<sup>18</sup></a>,
+        <a href="">Thomas Stangl<sup>8</sup></a>,
+        <a href="">Christoph Ransmayr<sup>8</sup></a>,
+        <a href="">Thomas Stangl<sup>8</sup></a>,
+        <a href="">Raoul Schrott<sup>12</sup></a>,
+        <a href="">Thomas Stangl<sup>8</sup></a>,
+        <a href="">Raoul Schrott<sup>14</sup></a>,
+        <a href="">Thomas Stangl<sup>8</sup></a>,
+        <a href="">Raoul Schrott<sup>11</sup></a>,
+        <a href="">Reinhard Kaiser-Mühlecker<sup>8</sup></a>,
+        <a href="">Clemens J. Setz<sup>8</sup></a>,
+        <a href="">Christoph Ransmayr<sup>8</sup></a>,
+        <a href="">Thomas Stangl<sup>12</sup></a>,
+        <a href="">Raoul Schrott<sup>18</sup></a>,
+        <a href="">Thomas Stangl<sup>8</sup></a>,
+        <a href="">Raoul Schrott<sup>8</sup></a>
+      </div>
+    </div>
+
+
+
+    <footer>
+      <div class="menu">
+        <a href="">Anmeldung</a>
+        <a href="">Stipendium</a>
+        <a href="">Organisation</a>
+        <a href="">Nozawa Onsen</a>
+        <a href="">Kontakt</a>
+        <a href="">Links</a>
+        <a href="">Archiv</a>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
