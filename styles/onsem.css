@@ -1,23 +1,36 @@
 html {
-  background: #fff;
-  color: #333;
-  font-size: 2vh;
+  background: #FFFFFF; /* default background color #C3F571*/
+}
+
+html {
+  color: #000;
+  font-size: max(2vh, 10px);
   font-family: neue-haas-grotesk-text, 'Helvetica Neue', sans-serif;
   font-weight: 400;
 }
 
 /* general */
 body {
-
+  padding: 0em;
+  margin: 0;
 }
+
+.body, .support {
+  padding: 0em 2em;
+}
+
+.page {
+  padding: 0em;
+}
+
 header {
   padding-bottom: 2em;
   font-size: 1.5em;
 }
 
-
 .menu {
-  font-size: 0.75em;
+  padding: 1em 2em;
+  font-size: 0.85em;
   font-weight: 500;
   display: flex;
   flex-flow: row wrap;
@@ -25,22 +38,19 @@ header {
 
 }
 .menu a {
-  margin-bottom: 0.75em;
   content: "a";
 }
 
 .page header #title {
   font-size: 2em;
-  padding-top: 0.5em;
+  padding: 0.5em;
+  padding-top: 0.25em;
+  text-align: center;
 }
 
 .page header #title_jp {
   /* writing-mode: vertical-rl; */
 }
-
-
-
-
 
 h1 {
   font-size: 3em;
@@ -50,7 +60,7 @@ h1 {
 
 h2 {
   font-size: 2em;
-  font-weight: 300;
+  font-weight: 100;
   text-align: center;
 }
 
@@ -58,59 +68,57 @@ h2 {
   font-size: 2em;
 }
 
-.body.text {
+.body.text, #title {
   font-size: 1.25em;
   font-weight: 500;
 }
 
-.archiv.body a {
-  display: block;
+ .support {
+   font-weight: 500;
+ }
 
+.body.text p {
+  margin-block-start: 0;
 }
 
-.archiv {
-  font-size: 2.5em;
+.body.text li {
+  padding-bottom: 1em;
+}
+
+
+.body.archiv {
+  font-size: 1em;
   text-align: center;
 }
+.body.archiv .autoren {
+  font-size: 3em;
+}
+.body.archiv .autoren a {
+  display: block;
+}
 
-.teilnehmer.body {
+.body.archiv .teilnehmer {
   font-size: 1.75em;
   display: inline;
 }
 
 
 
-
-
-
-
-.regular {
-  font-weight: 400;
-}
-
-.medium {
-  font-weight: 500;
-}
-
-.bold {
-  font-weight: 700;
-}
-
-.italic {
-  font-style: italic;
-}
-
-.gray {
-  color: #666;
-}
+.regular  { font-weight: 400; }
+.medium   { font-weight: 500; }
+.bold     { font-weight: 700; }
+.italic   { font-style: italic; }
+.center   { text-align: center; }
+.gray     { color: #999; }
 
 a, a:visited {
   color: #000;
-  text-decoration: none;
+  text-decoration: underline;
   cursor: pointer;
 }
 a:hover {
   color: #33f;
+  background-color: #fff;
   text-decoration: underline;
 }
 a:active {
@@ -135,9 +143,9 @@ a:active {
 */
 
 sup {
-  color: #33f;
   font-weight: 700;
 }
+
 .sel {
   color: white;
   background: #00f;
@@ -152,7 +160,7 @@ sup {
 
 ::selection {
   color: black;
-  background: #ff0;
+  background: #0ff;
 }
 
 footer {
@@ -166,59 +174,48 @@ footer #copyright {
 
 select {
   border: none;
-  color:  #33f;
-  text-decoration: underline;
+  background-color: rgba(255,255,255,0);
+  /* text-decoration: underline; */
   font-weight: 500;
+  font-size: 1.75em;
 }
 
 .select {
   border: none;
 }
 
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.row  {
+  display: flex;
 }
 
-.row .column:first-child {
-  float: left;
-  width: 50%;
-  padding-right: 1em;
+.row .column {
+  flex: 50%;
 }
 
-.row .column:last-child {
-  float: left;
-  width: 50%;
-  padding-left: 1em;
+.row .column1 {
+  padding-right: 0.5em;
+}
+.row .column2 {
+  padding-left: 0.5em;
 }
 
 
-.schedule:after {
-  content: "";
-  display: table;
-  clear: both;
+.column img {
+  display: block;
+  width: 100%;
 }
-
-.schedule .column {
-  float: left;
-  width: auto;
-  padding-right: 2em;
-
-}
-
 
 .byline {
   font-size: 0.75em;
   font-weight: 400;
   text-align: right;
-  padding-bottom: 1em;
+  padding-top: 0.25em;
+  padding-bottom: 2em;
 }
 
 table {
   width: 100%;
-  font-size: 1.25em;
+  font-size: 1em;
   font-weight: 500;
   border: 1px solid black;
   border-collapse: collapse;
@@ -227,12 +224,40 @@ tr, td {
   border: 1px solid black;
   padding: 0.25em;
 }
-.center {
-  text-align: center;
+
+/* Header Menu */
+header .menu, footer .menu {
+  background-color: #fff;
 }
 
 
+@media (max-width: 769px) {
+  .row  {
+    display: block;
+  }
 
-#yearselect {
-  font-size: 1.5em;
+  .row .column {
+    flex: auto;
+  }
+
+  .row .column1 {
+    padding-right: 0;
+  }
+  .row .column2 {
+    padding-left: 0;
+  }
+  .column img {
+    padding-top: 1em;
+  }
+
+}
+
+#senden {
+  float: right;
+  font-size: 0.5em;
+  opacity: 0.2;
+}
+
+.highlight {
+  background: #fff;
 }

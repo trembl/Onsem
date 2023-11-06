@@ -1,6 +1,6 @@
 <a href="<?php echo home_url(); ?>/seminar2016/">
 <div class="bild">
-  <img src="http://www.onsem.info/wp-content/themes/onsem/images/autoren/Setz.jpg" width="100%" />
+  <img src="https://www.onsem.info/wp-content/themes/onsem/images/autoren/Setz.jpg" width="100%" />
 </div>
 </a>
 <div class="bilduberschrift">Clemens J. Setz</div>

@@ -1,5 +1,10 @@
-<?php get_header(); ?>
+<?php
 
-<h1>404 - Seite nicht gefunden.</h1>
+get_header();
+get_sidebar(); ?>
 
+<div class="einleitung">
+Page not found
+</div>
+	
 <?php get_footer(); ?>

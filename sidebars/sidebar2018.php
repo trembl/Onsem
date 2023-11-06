@@ -1,6 +1,6 @@
 <a href="<?php echo home_url(); ?>/seminar2018/">
 <div class="bild">
-<img src="http://www.onsem.info/wp-content/themes/onsem/images/autoren/RaoulSchrott.jpg" width="100%" />
+<img src="https://www.onsem.info/wp-content/themes/onsem/images/autoren/RaoulSchrott.jpg" width="100%" />
 </div>
 </a>
 <div class="bilduberschrift">Raoul Schrott</div>

@@ -1,5 +1,7 @@
 <?php
 
+// Sidebar. Image & Timetable
+
 $video = ' <img src="' . get_bloginfo('template_directory') . '/images/video.gif" width="28" height="9">';
 $abstract = ' <img src="' . get_bloginfo('template_directory') . '/images/abstract.gif" width="46" height="9">';
 $fulltext = ' <img src="' . get_bloginfo('template_directory') . '/images/volltext.gif" width="45" height="9">';
@@ -8,39 +10,49 @@ $fulltext = ' <img src="' . get_bloginfo('template_directory') . '/images/vollte
 
 <div class="sidecolumn">
 
-
 <?php
 
+// Seminar 2022 Karl Lubomirski
+if (is_front_page() OR is_page('4289') OR $post->post_parent=='4289'):
+  $parent_id = '4289';
+  
+// Seminar 2021 Julya Rabinowich
+elseif (is_page('4105') OR $post->post_parent=='4105'):
+  $parent_id = '4105';
+
 // Seminar 2020 Daniel Wisser
-if (is_front_page() OR is_page('3930') OR $post->post_parent=='3930'):
-	include("sidebars/sidebar2020.php");
+elseif (is_page('3930') OR $post->post_parent=='3930'):
+  $parent_id = '3930';
 
 // Seminar 2019 Thomas Stangle
 elseif (is_page('3688') OR $post->post_parent=='3688'):
-	include("sidebars/sidebar2019.php");
+  $parent_id = '3688';
 
 // Seminar 2018 Raoul Schrott
 elseif (is_page('3560') OR $post->post_parent=='3560'):
-	include("sidebars/sidebar2018.php");
+  $parent_id = '3560';
 
 // Seminar 2017 Reinhard Kaiser-Mühlecker
 elseif (is_page('3381') OR $post->post_parent=='3381'):
-	include("sidebars/sidebar2017.php");
+  $parent_id = '3381';
 
 // Seminar 2016 Clemens J. Setz
 elseif (is_page('3207') OR $post->post_parent=='3207'):
-	include("sidebars/sidebar2016.php");
+ $parent_id = '3207';
 
 // Seminar 2015, Christoph Ransmayr
 elseif (is_page('3077') OR $post->post_parent=='3077'):
-	include("sidebars/sidebar2015.php");
+  $parent_id = '3077';
 
 // Seminar 2014, Sabine Gruber
-elseif (is_page('2866') OR $post->post_parent=='2866'): ?>
-
+elseif (is_page('2866') OR $post->post_parent=='2866'): 
+  $parent_id = '2866';
+?>
+  
+  
 <a href="<?php echo home_url(); ?>/seminar2014/">
 <div class="bild">
-<img src="http://www.onsem.info/wp-content/uploads/2014/05/SabineGruberFeb2011a.jpg" width="100%" />
+<img src="https://www.onsem.info/wp-content/uploads/2014/05/SabineGruberFeb2011a.jpg" width="100%" />
 </div>
 </a>
 <div class="bilduberschrift">Sabine Gruber</div>
@@ -420,13 +432,25 @@ elseif ( is_page('287') OR $post->post_parent=='287' OR $post->post_parent=='290
 
 <?php endif; ?>
 
+<?php if ($parent_id): ?>
+  <a href="<?php the_permalink($parent_id); ?>">
+    <div class="bild">
+      <img src="<?php echo get_field('author_image', $parent_id)['sizes']['medium_large']; ?>" />
+    </div>
+  </a>
+  <div class="byline">
+    <strong><?php the_field('byline_author', $parent_id); ?></strong> <?php the_field('byline_credit', $parent_id); ?>
+  </div>
+  <?php makeTimetable($parent_id); ?>
+<?php endif; ?>
+
 </div>
 
+<?php /* ?>
 <div id="social">
-	<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.onsem.info" data-text="<?php echo get_option('onsem_twitter_message'); ?>" data-lang="de" data-hashtags="<?php echo get_option('onsem_twitter_hashtag'); ?>">Twittern</a>
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-	<div>&nbsp;</div>
-	<div class="g-plusone" data-annotation="inline" data-width="430" data-href="http://www.onsem.info"></div>
-	<div>&nbsp;</div>
-	<div class="fb-like" data-href="https://www.onsem.info" data-send="true" data-width="430" data-show-faces="true"></div>
+  <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://www.onsem.info" data-text="<?php echo get_option('onsem_twitter_message'); ?>" data-lang="de" data-hashtags="<?php echo get_option('onsem_twitter_hashtag'); ?>">Twittern</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div>&nbsp;</div>
+<div class="fb-like" data-href="https://www.onsem.info" data-send="true" data-width="430" data-show-faces="true"></div>
 </div>
+<?php */ ?>
