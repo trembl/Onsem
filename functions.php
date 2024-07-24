@@ -238,4 +238,20 @@ function showMenu($menuSlug, $class='', $subClass='', $padding='        ') {
  }
 }
 
+
+
+// Include Markdown Parser
+include('includes/Parsedown.php');
+$Parsedown = new Parsedown();
+
+function the_markdown_content() {
+  global $Parsedown;
+  // this field must be set in ACF
+  if (get_field('enable_markdown_filter')) {
+    echo $Parsedown->text(get_the_content());
+  } else {
+    the_content();
+  }
+}
+
 ?>

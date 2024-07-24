@@ -25,7 +25,7 @@ get_header(); ?>
       
       if ($lecturer) {
         $name = $lecturer['display_name'];
-        echo "<a href='".the_permalink($lecturer->ID)"'>$name</a>\n";
+        echo "<a href='".the_permalink($lecturer->ID)."'>$name</a>\n";
       } else if ($vortragender) {
         echo "<a href=''>$vortragender</a>\n";
       }
