@@ -1,6 +1,6 @@
 <a href="<?php echo home_url(); ?>/seminar2022/">
   <div class="bild">
-    <img src="<?php echo get_field('author_image', $parent_id)['sizes']['medium_large']; ?>" />
+    <img src="<?php echo get_field('portrait', $parent_id)['sizes']['medium_large']; ?>" />
   </div>
 </a>
 <div class="byline">

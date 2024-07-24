@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <link href="<?php bloginfo('stylesheet_url'); ?>" rel="stylesheet" type="text/css" />
   <style><?php
-    if (get_field('color')) echo "html { background: ". get_field('color') ."; }";
+    if (get_field('farbe')) echo "html { background: ". get_field('farbe') ."; }";
     else if (get_field('color', $post->post_parent)) echo "html { background: ". get_field('color', $post->post_parent) ."; }";
   ?></style>
   <?php // wp_head(); ?>

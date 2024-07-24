@@ -9,7 +9,7 @@ get_header(); ?>
 <div class="body text">
   <div class="row">
     <div class="column column1">
-      <?php the_content(); ?>
+<?php the_markdown_content(); ?>
     </div>
     <div class="column column2">
 <?php get_sidebar(); ?>

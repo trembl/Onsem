@@ -435,11 +435,11 @@ elseif ( is_page('287') OR $post->post_parent=='287' OR $post->post_parent=='290
 <?php if ($parent_id): ?>
   <a href="<?php the_permalink($parent_id); ?>">
     <div class="bild">
-      <img src="<?php echo get_field('author_image', $parent_id)['sizes']['medium_large']; ?>" />
+      <img src="<?php echo get_field('portrait', $parent_id)['sizes']['medium_large']; ?>" />
     </div>
   </a>
   <div class="byline">
-    <strong><?php the_field('byline_author', $parent_id); ?></strong> <?php the_field('byline_credit', $parent_id); ?>
+    <strong><?php the_field('author_name', $parent_id); ?></strong> <?php the_field('image_credit', $parent_id); ?>
   </div>
   <?php makeTimetable($parent_id); ?>
 <?php endif; ?>
