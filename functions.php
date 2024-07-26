@@ -201,8 +201,6 @@ function makeTimetable($parentID=0) {
 
     echo '</table>'."\n";
 
-    //wp_reset_postdata();
-
   }
 
 
@@ -234,7 +232,7 @@ function showMenu($menuSlug, $class='', $subClass='', $padding='        ') {
    $page = get_post($pageId);
    $link = get_permalink($page->ID);
    $c = ($menuItem->menu_item_parent) ? "$class $subClass" : "$class";
-   echo "$padding<a href=\"$link\" class=\"$c\">$menuItem->title</a> &nbsp;\n";
+   echo "$padding<a href=\"$link\" class=\"$c\">$menuItem->title</a>\n";
  }
 }
 

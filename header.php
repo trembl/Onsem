@@ -5,22 +5,25 @@
   <meta charset="UTF-8">
   <link href="<?php bloginfo('stylesheet_url'); ?>" rel="stylesheet" type="text/css" />
   <style><?php
-    if (get_field('farbe')) echo "html { background: ". get_field('farbe') ."; }";
-    else if (get_field('color', $post->post_parent)) echo "html { background: ". get_field('color', $post->post_parent) ."; }";
+    if (get_field('farbe')) echo "body { background: ". get_field('farbe') ."; }";
+    else if (get_field('color', $post->post_parent)) echo "body { background: ". get_field('color', $post->post_parent) ."; }";
   ?></style>
   <?php // wp_head(); ?>
 </head>
-<body>
-  <div class="page w-100 pa4">
-    <header>
-      <div class="menu">
-        <a href="<?php echo home_url(); ?>">♨️ Onsem 📖</a> &nbsp;
+<body class="">
+  <div class="">
+    <header >
+      <div id="menu">
+        <a href="<?php echo home_url(); ?>">♨️ Onsem 📖</a>
 <?php showMenu('top-menu'); ?>
       </div>
-      <div id="title">
-        <div class="medium">31. Seminar zur österreichischen Gegenwartsliteratur</div>
-        <div id="title_jp">オーストリア現代文学ゼミナール</div>
-        <span class="italic">16. Dezember 2022<br />
-        Mit <a href="<?php echo home_url(); ?>/">Karl Lubomirski </a></span>
+      <div class="px-8 bg-gradient-to-b from-white to-transparent">
+        <div class="text-2xl italic">
+          31. Seminar zur österreichischen 🇦🇹 Gegenwartsliteratur in Japan
+          🇯🇵オーストリア現代文学ゼミナール
+          16. Dezember 2022.
+        </div>
+
+       
       <div>
     </header>

@@ -439,7 +439,7 @@ elseif ( is_page('287') OR $post->post_parent=='287' OR $post->post_parent=='290
     </div>
   </a>
   <div class="byline">
-    <strong><?php the_field('author_name', $parent_id); ?></strong> <?php the_field('image_credit', $parent_id); ?>
+    <strong><?php the_field('author_name', $parent_id); ?></strong> Photo: ©<?php the_field('image_credit', $parent_id); ?>
   </div>
   <?php makeTimetable($parent_id); ?>
 <?php endif; ?>
