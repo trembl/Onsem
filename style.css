@@ -1,14 +1,23 @@
 /*
 Theme Name: Onsem
-Theme URI:
-Description: Onsem 2022
+Theme URI: www.onsem.info
+Description: Onsem
 Author: Georg Tremmel
-Version: 22.0
+Version: 2024.0
 License:
 License URI:
 Tags:
 */
 
+/* Legacy CSS */
+/*
 @import url('https://use.typekit.net/mhw5cxw.css');
 @import url('styles/tachyons.min.css');
+@import url('styles/onsem_legacy.css');
+*/
+
+/*
+Tailwind-generated CSS
+npx tailwindcss -i ./styles/input.css -o ./styles/onsem.css --watch
+*/
 @import url('styles/onsem.css');

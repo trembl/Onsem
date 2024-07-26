@@ -1,0 +1,263 @@
+html {
+  background: #FFFFFF; /* default background color #C3F571*/
+}
+
+html {
+  color: #000;
+  font-size: max(2vh, 10px);
+  font-family: neue-haas-grotesk-text, 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+}
+
+/* general */
+body {
+  padding: 0em;
+  margin: 0;
+}
+
+.body, .support {
+  padding: 0em 2em;
+}
+
+.page {
+  padding: 0em;
+}
+
+header {
+  padding-bottom: 2em;
+  font-size: 1.5em;
+}
+
+.menu {
+  padding: 1em 2em;
+  font-size: 0.85em;
+  font-weight: 500;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between; /* Can be changed in the live sample */
+
+}
+.menu a {
+  content: "a";
+}
+
+.page header #title {
+  font-size: 2em;
+  padding: 0.5em;
+  padding-top: 0.25em;
+  text-align: center;
+}
+
+.page header #title_jp {
+  /* writing-mode: vertical-rl; */
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: 500;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: 100;
+  text-align: center;
+}
+
+.body {
+  font-size: 2em;
+}
+
+.body.text, #title {
+  font-size: 1.25em;
+  font-weight: 500;
+}
+
+ .support {
+   font-weight: 500;
+ }
+
+.body.text p {
+  margin-block-start: 0;
+}
+
+.body.text li {
+  padding-bottom: 1em;
+}
+
+
+.body.archiv {
+  font-size: 1em;
+  text-align: center;
+}
+.body.archiv .autoren {
+  font-size: 3em;
+}
+.body.archiv .autoren a {
+  display: block;
+}
+
+.body.archiv .teilnehmer {
+  font-size: 1.75em;
+  display: inline;
+}
+
+
+
+.regular  { font-weight: 400; }
+.medium   { font-weight: 500; }
+.bold     { font-weight: 700; }
+.italic   { font-style: italic; }
+.center   { text-align: center; }
+.gray     { color: #999; }
+
+a, a:visited {
+  color: #000;
+  text-decoration: underline;
+  cursor: pointer;
+}
+a:hover {
+  color: #33f;
+  background-color: #fff;
+  text-decoration: underline;
+}
+a:active {
+  color: #fff;
+  background: #33f;
+  text-decoration: none;
+}
+/*
+#title a {
+  color: #33f;
+  text-decoration: underline;
+}
+#title a:hover {
+  color: #33f;
+  text-decoration: underline;
+}
+#title a:active {
+  color: #fff;
+  background: #33f;
+  text-decoration: underline;
+}
+*/
+
+sup {
+  font-weight: 700;
+}
+
+.sel {
+  color: white;
+  background: #00f;
+
+}
+/*
+::selection {
+  color: white;
+  background: linear-gradient(#aaa, #ccc);
+}
+*/
+
+::selection {
+  color: black;
+  background: #0ff;
+}
+
+footer {
+  margin-top: 5em;
+  font-size: 1.5em;
+}
+
+footer #copyright {
+  text-align: center;
+}
+
+select {
+  border: none;
+  background-color: rgba(255,255,255,0);
+  /* text-decoration: underline; */
+  font-weight: 500;
+  font-size: 1.75em;
+}
+
+.select {
+  border: none;
+}
+
+.row  {
+  display: flex;
+}
+
+.row .column {
+  flex: 50%;
+}
+
+.row .column1 {
+  padding-right: 0.5em;
+}
+.row .column2 {
+  padding-left: 0.5em;
+}
+
+
+.column img {
+  display: block;
+  width: 100%;
+}
+
+.byline {
+  font-size: 0.75em;
+  font-weight: 400;
+  text-align: right;
+  padding-top: 0.25em;
+  padding-bottom: 2em;
+}
+
+table {
+  width: 100%;
+  font-size: 1em;
+  font-weight: 500;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+tr, td {
+  border: 1px solid black;
+  padding: 0.25em;
+}
+
+/* Header Menu */
+header .menu, footer .menu {
+  background-color: #fff;
+}
+
+
+@media (max-width: 769px) {
+  .row  {
+    display: block;
+  }
+
+  .row .column {
+    flex: auto;
+  }
+
+  .row .column1 {
+    padding-right: 0;
+  }
+  .row .column2 {
+    padding-left: 0;
+  }
+  .column img {
+    padding-top: 1em;
+  }
+
+}
+
+#senden {
+  float: right;
+  font-size: 0.5em;
+  opacity: 0.2;
+}
+
+.highlight {
+  background: #fff;
+}

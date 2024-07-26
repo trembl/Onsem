@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tailwind Additional Base Styles */
+@layer base {
+  
+  /* Text Selection */
+  ::selection {
+    color: black;
+    background-color: #00ffff;
+  }
+  
+  /* Headers */
+  h1 {
+    @apply text-6xl font-semibold py-2;
+  }
+  h2 {
+    @apply text-4xl font-semibold py-8;
+  }
+  h3 {
+    @apply text-3xl font-semibold py-8;
+  }
+  h4 {
+    @apply text-2xl font-semibold py-8;
+  }
+  h5 {
+    @apply text-xl font-semibold py-8;
+  }
+  
+  a, a:visited {
+    text-decoration: underline;
+    @apply bg-white;
+    @apply decoration-2 underline-offset-2;
+    @apply decoration-black;
+    cursor: pointer;
+  }
+  a:hover {
+    color: #00f;
+    @apply no-underline;
+  }
+  a:active {
+    color: #fff;
+    background: #00f;
+    @apply no-underline;
+  }
+  
+  #content {
+    @apply px-8;
+    @apply font-medium text-4xl sm:text-2xl md:text-xl;
+    @apply grid grid-cols-1 md:grid-cols-2 gap-8;
+  }
+  #content p {
+    @apply mb-5;
+  }
+  
+  #content li {
+    list-style-type: disc; 
+    list-style-position: outside;
+    margin-left: 1em;
+  }
+  
+  #content pre { /* seminar2022 */
+    @apply bg-gradient-to-b from-white;
+    @apply p-4;
+    @apply italic;
+  }
+
+  #menu {
+    @apply p-8 bg-white;
+    @apply font-medium text-5xl sm:text-3xl md:text-2xl;
+    @apply lg:flex lg:justify-between;
+  }
+  #menu > div {
+    @apply sm:py-1 p-0;
+    @apply text-center;
+  }
+  #menu a {
+    @apply block sm:inline;
+    @apply p-2 sm:p-0;
+  }
+  
+  table.schedule {
+    width: 100%;
+    font-size: 1em;
+    font-weight: 500;
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  tr, td {
+    border: 1px solid black;
+    padding: 0.25em;
+  }
+  
+  
+  
+}
