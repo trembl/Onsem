@@ -1,49 +1,71 @@
 <?php
 /*
-Template Name: Archive
+Template Name: Archiv
 */
 
-get_header(); ?>
-
-<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery-3.5.1.min.js" charset="utf-8"></script>
-<script type="text/javascript">
-
-$(document).ready(function() {
-  $('#yearselect').change(function(e) {
-    var v = $(this).val()
-    if (v === 'all') {
-      $('.teilnehmer a').show() // show all
-    } else {
-      $('.teilnehmer a').hide() // hide all
-      $('.y' + v).show()        // show only selected
-    }
-  })
-})
-
-</script>
-
-<div>
-  <h1>Seminare</h1>
-  <div class="archiv body">
-<?php
-
-foreach (wp_get_nav_menu_items('author-menu') as $m) {
-  echo "    <a href=\"$m->url\">$m->title</a>\n";
-}
+get_header(); 
 
 ?>
+
+<div class="font-medium text-6xl p-8 text-center">
+  <span class=""><?php the_title(); ?></span> <?php edit_post_link('<sup>✎</sup>');?>
+</div>
+<div>
+  <h2 class="font-medium text-5xl text-center">Seminare</h2>
+  <div class="autoren px-8">
+<?php
+$menuItems = getMenu('authors-menu');
+foreach($menuItems as $menuItem) {
+  $pageId = get_post_meta($menuItem->ID, '_menu_item_object_id', true );   // get id of associated menu page
+  $page = get_post($pageId);
+  $name = get_field('author_name', $pageId);
+  $color = get_field('farbe', $pageId);
+  $year = get_field('jahr', $pageId);
+  $link = get_permalink($pageId);
+  echo "    <div><a href=\"$link\" style=\"background-color:$color\">$year $name</a></div>\n";
+}
+?>
+  </div>
+  
+  <h2 class="font-medium text-5xl text-center">Vortragende</h2>
+  <div class="font-medium text-4xl px-8 text-center">
+<?php
+
+$lecturers = accumulateLecturers();
+$output = array();
+foreach($lecturers as $l) {
+  $name = $l['name'];
+  $freq = $l['freq'];
+  $lastname = $l['lastname'];
+  $link = urlencode(strtolower($name));
+  array_push($output, "    <a href=\"$link\">$name, |||$lastname|||</a><sup>$freq</sup>");
+}
+echo implode(",\n", $output);
+?>
+
+    
+  </div>
+  <div>
+<?php get_sidebar(); ?>
+  </div>
+</div>
+
+<?php get_footer(); ?>
+
+
+
   </div>
 
 <?php
 
-
-// get all posts where ACF array field 'vortragende' is not empty
+/*
+// get all posts where ACF array field 'vortragender' is not empty
 $allPosts = get_posts(array(
   'numberposts' => -1,
   'post_type'   => 'page',
   'meta_query'  => array(
     array(
-      'key'     => 'vortragende',   // check if array is not empty
+      'key'     => 'vortragender',   // check if array is not empty
       'compare' => '!=',
       'value'   => '',
     )
@@ -98,7 +120,7 @@ foreach ($cleaned as $name => $yearArray) {
     <option value="all">Alle</option>
 <?php
 
-
+/*
   $allYears = array_unique($allYears);    // make unique
   rsort($allYears);
   $optionsOutput = array();

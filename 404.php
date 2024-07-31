@@ -1,10 +1,7 @@
-<?php
+<?php get_header(); ?>
 
-get_header();
-get_sidebar(); ?>
-
-<div class="einleitung">
-Page not found
+<div class="font-medium text-6xl px-8 py-24 text-center">
+  404 - Seite nicht gefunden.
 </div>
-	
+
 <?php get_footer(); ?>

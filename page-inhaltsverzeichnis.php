@@ -41,7 +41,7 @@ foreach($pages as $page) {
 	$seminarPages[$parentID][] = $page;
 	
 	// add page to lecturerPages
-	$lecturer = get_post_meta($page->ID, 'Vortragender', true);
+	//$lecturer = get_post_meta($page->ID, 'Vortragender', true);
 	if (!array_key_exists($lecturer, $lecturerPages)) {
 		$lecturerPages[$lecturer] = array();
 	}
@@ -77,7 +77,7 @@ foreach($seminarPages as $seminarID=>$seminar) {
 	echo "<h3><em>Seminar ". ltrim($semiarPage->post_name, "seminar") . " mit " . $semiarPage->post_title . "</em></h3>";
 	
 	foreach($seminar as $page) {
-		echo get_post_meta($page->ID, 'Vortragender', true) . ": ";	
+		//echo get_post_meta($page->ID, 'Vortragender', true) . ": ";	
 		echo '<a href="' . get_permalink($page->ID) . '">' .  strip_tags($page->post_title, "<em>, </em>") . "</a><br />";
 	}
 }

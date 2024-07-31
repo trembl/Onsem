@@ -14,7 +14,7 @@ edit_post_link(' [edit]');
 // Show "Vortragender", if Custom Field exists
 
 // Old Post-meta
-$vortragender = get_post_meta($post->ID, 'Vortragender', true);
+//$vortragender = get_post_meta($post->ID, 'Vortragender', true);
 
 // New ACF overrides Old Post-meta
 $vortragender = get_field('vortragender');

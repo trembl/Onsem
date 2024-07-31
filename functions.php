@@ -12,6 +12,25 @@ include('components/disable_adminbar_links.php');
 include('components/disable_visual_editor.php');
 //include('components/disable_auto_p.php');
 
+// Rewrite Rules for Lecturer Archhive
+add_action('init', function() {
+  add_rewrite_rule( 'archiv/([^/]+)[/]?$', 'index.php?lecturer=$matches[1]', 'top' );
+});
+add_filter('query_vars', function( $query_vars ) {
+  $query_vars[] = 'lecturer';
+  return $query_vars;
+});
+add_filter('template_include', function( $template ) {
+  if ( get_query_var('lecturer' ) == false || get_query_var( 'lecturer' ) == '' ) {
+    return $template;
+  }
+  return get_template_directory() . '/page-lecturer.php';
+});
+
+
+
+
+
 /*
 function sideMenu($category, $displayName) {
 	if (is_category($category) || in_category($category) || is_page($category) ) {
@@ -81,26 +100,22 @@ function onsem_sidebar() {
 }
 
 function highlight($nr) {
-
-	// replace with showLecture()...
-	if (is_page($nr)) {
-		echo 'id="current"';
-	}
+  // replace with showLecture()...
+  if (is_page($nr)) {
+    echo 'id="current"';
+  }
 }
 
 
-
 function showLecture($post_id) {
-
-	$current = (is_page($post_id)) ? ' id="current"' : '';
-	$author = get_post_meta($post_id, 'Vortragender', true);
-	echo '<a href="' . get_permalink($post_id) .'"' . $current . '>' . get_the_title($post_id) . "</a>" . $author;
+  $current = (is_page($post_id)) ? ' id="current"' : '';
+  //$author = get_post_meta($post_id, 'Vortragender', true);
+  echo '<a href="' . get_permalink($post_id) .'"' . $current . '>' . get_the_title($post_id) . "</a>" . $author;
 }
 
 
 
 // Onsem Theme Settings
-
 function onsem_settings_menus() {
 	add_submenu_page('options-general.php', 'Onsem Twitter', 'Onsem Twitter', 'manage_options', 'onsem-twitter', 'onsem_twitter_settings');
 	add_action( 'admin_init', 'register_onsem_settings' );
@@ -145,7 +160,7 @@ add_action("admin_menu", "onsem_settings_menus");
 
 
 // make timetable based on ACFs
-function makeTimetable($parentID=0) {
+function makeSidebar($parentID=0) {
   // get all children of $parentID
 
   $posts = get_posts(array(
@@ -195,15 +210,35 @@ function makeTimetable($parentID=0) {
       if ($post->ID == $p->ID) {
         $h = "highlight";
       }
-
       echo '<tr class="'.$h.'"><td class="schedule-time">'. $date->format('H:i') .'</td><td class="schedule">'. $title .'</td></tr>'."\n";
     }
-
     echo '</table>'."\n";
-
   }
+}
 
+function showImage($id) {
+  $img = get_field('portrait', $id);
+  $link = $img['sizes']['medium_large'];
+?>
 
+<a href="<?php the_permalink($id); ?>">
+  <div class="bild">
+    <img src="<?php echo $link; ?>" width="100%" />
+  </div>
+</a>
+<?php
+  if (get_field('author_name', $id)) {
+?>
+<div class="text-sm italic float-right">
+  ©Foto: <?php echo get_field('image_credit', $id); ?>
+</div>
+<?php
+  }
+?>
+<div class="text-sm">
+  <?php echo get_field('author_name', $id); ?>
+</div>
+<?php
 }
 
 
@@ -212,7 +247,8 @@ function register_onsem_menus() {
   register_nav_menus(
     array(
       'top-menu' => __( 'Top Menu' ),
-      'bottom-menu' => __( 'Bottom Menu' )
+      'bottom-menu' => __( 'Bottom Menu' ),
+      'authors-menu' => __( 'Authors Menu' ),
      )
    );
  }
@@ -236,6 +272,20 @@ function showMenu($menuSlug, $class='', $subClass='', $padding='        ') {
  }
 }
 
+function showBreadcrumbs() {
+  if (has_post_parent()) {
+    $parent = get_post_parent();
+    $link = get_permalink($parent);
+    $title = get_the_title($parent);
+?>
+      <div id="breadcrumbs" class="px-8 text-sm font-medium italic">
+        ⮑ <a href="<?php echo $link ?>"><?php echo $title ?></a> /
+        <? the_title() ?>
+      </div>
+<?php
+  }
+}
+
 
 
 // Include Markdown Parser
@@ -251,5 +301,42 @@ function the_markdown_content() {
     the_content();
   }
 }
+
+// Accumulate Lecturers for Archive
+function accumulateLecturers() {
+  global $wpdb; 
+  $query  = "SELECT wp_postmeta.meta_value ";
+  $query .= "FROM wp_posts, wp_postmeta ";
+  $query .= "WHERE wp_posts.post_status = 'publish' AND wp_posts.ID = wp_postmeta.post_id AND wp_postmeta.meta_key = 'vortragender' AND NOT wp_postmeta.meta_value = '' ";
+  $results = $wpdb->get_results($query);
+  $values = array_values($results);
+  $values = array();
+  foreach($results as $result) {
+
+    $lecturers = explode(", ", $result->meta_value); // split multiple lecturers by ", "
+    foreach ($lecturers as $lecturer) {
+      array_push($values, $lecturer);
+    }
+  }
+  $lecturers = array_count_values($values);
+  
+  $lecturersObj = array();
+  foreach ($lecturers as $lecturer=>$freq) {
+    $name = explode(" ", $lecturer);
+    $l = array(
+      'freq'     => $freq,
+      'name'     => $lecturer,
+      'lastname' => end($name),
+    );
+    array_push($lecturersObj, $l);
+  }
+  
+  // sort by last name
+  usort($lecturersObj, function($a, $b) {return strcmp($a['lastname'], $b['lastname']);});
+  
+
+  return $lecturersObj;
+}
+
 
 ?>

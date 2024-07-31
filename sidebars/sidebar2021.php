@@ -6,4 +6,4 @@
 <div class="bilduberschrift">Julya Rabinowich</div>
 <div class="bildunterschrift">Foto: ©Michael Mazohl</div>
 
-<?php makeTimetable(4105); ?>
+<?php makeSidebar(4105); ?>

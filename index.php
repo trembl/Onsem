@@ -6,7 +6,7 @@
 <?php  the_title();
 edit_post_link('*');
 // Show Vortragender, if Custom Field exists
-$vortragender = get_post_meta($post->ID, 'Vortragender', true);
+//$vortragender = get_post_meta($post->ID, 'Vortragender', true);
 if ($vortragender) {
 	echo "<div class=\"vortragender\">$vortragender</div>\n";
 } ?>

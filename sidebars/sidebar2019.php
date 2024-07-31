@@ -6,4 +6,4 @@
 <div class="bilduberschrift">Thomas Stangl</div>
 <div class="bildunterschrift">Foto: ©Peter-Andreas Hassiepen</div>
 
-<?php makeTimetable(3688); ?>
+<?php makeSidebar(3688); ?>

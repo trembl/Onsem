@@ -4,48 +4,51 @@
 Notes: Article Main Page
 */
 
-get_header(); ?>
+get_header(); 
 
-<div class="body text">
-  <div class="row">
-    <div class="column column1">
+$lecturer = get_field('vortragender');
 
-      <h1 class="mt0"><?php the_title(); edit_post_link('<sup>✎</sup>');?></h1>
-      <h2><?php
-
-      // Show "Vortragender", if Custom Field exists
-
-      // Old Post-meta
-      $vortragender = get_post_meta($post->ID, 'Vortragender', true);
-
-      // New ACF overrides Old Post-meta
-      $vortragender = get_field('vortragender');
-      
-      $lecturer = get_field('lecturer');
-      
-      if ($lecturer) {
-        $name = $lecturer['display_name'];
-        echo "<a href='".the_permalink($lecturer->ID)."'>$name</a>\n";
-      } else if ($vortragender) {
-        echo "<a href=''>$vortragender</a>\n";
-      }
-
-      ?></h2>
-
-
-<?php the_content(); ?>
-<?php
-      if( have_rows('videos') ):
-        while( have_rows('videos') ) : the_row();
-          echo '<iframe src="https://player.vimeo.com/video/'. get_sub_field('video') .'" width="450" height="253" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
-        endwhile;
-      endif;
+// split by ", " // if more than 1
+$lecturers = explode(", ", $lecturer);
 ?>
-    </div>
-    <div class="column column2">
+
+<div class="font-medium text-6xl p-8">
+  <span class="italic">
+<?php
+foreach($lecturers as $lecturer) {
+  $link = urlencode(strtolower($lecturer));
+?>
+    <a href="<?php echo home_url(); ?>/archiv/<?php echo $link; ?>">
+      <?php echo $lecturer; ?>
+    </a>
+    
+
+<?php
+}
+?>
+
+  </span>
+  <span class=""><?php the_title(); ?></span> <?php edit_post_link('<sup>✎</sup>');?>
+</div>
+<div id="content">
+  <div>
+<?php
+
+the_markdown_content();
+
+if( have_rows('videos') ):
+  while( have_rows('videos') ) : the_row();
+    echo '<div style="padding:56.25% 0 0 0;position:relative;">';
+    echo '<iframe src="https://player.vimeo.com/video/'. get_sub_field('video') .'" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>';
+    echo '</div>';
+  endwhile;
+endif;
+
+?>
+  </div>
+  <div class="">
 <?php get_sidebar(); ?>
-    </div>
-  </div><!-- row -->
-</div><!-- body text -->
+  </div>
+</div>
 
 <?php get_footer(); ?>

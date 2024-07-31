@@ -66,18 +66,22 @@
     @apply italic;
   }
 
-  #menu {
-    @apply p-8 bg-white;
+  .menu {
+    @apply p-8;
     @apply font-medium text-5xl sm:text-3xl md:text-2xl;
     @apply lg:flex lg:justify-between;
+    @apply bg-gradient-to-b from-white to-transparent;
   }
-  #menu > div {
+  .menu > div {
     @apply sm:py-1 p-0;
     @apply text-center;
   }
-  #menu a {
+  .menu a {
     @apply block sm:inline;
-    @apply p-2 sm:p-0;
+    @apply p-2 m-1 sm:p-0;
+  }
+  .menu-bottom {
+    @apply bg-gradient-to-b from-transparent to-white;
   }
   
   table.schedule {
@@ -92,6 +96,14 @@
     padding: 0.25em;
   }
   
+  .bild img {
+    @apply grayscale hover:grayscale-0;
+  }
+  
+  .autoren {
+    @apply font-medium text-6xl text-center;
+    @apply grid gap-4 grid-cols-1;
+  }
   
   
 }

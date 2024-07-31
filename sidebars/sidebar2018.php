@@ -6,5 +6,5 @@
 <div class="bilduberschrift">Raoul Schrott</div>
 <div class="bildunterschrift">Foto: ©Peter-Andreas Hassiepen</div>
 
-<?php makeTimetable(3560); ?>
+<?php makeSidebar(3560); ?>
 

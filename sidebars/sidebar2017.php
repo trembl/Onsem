@@ -6,5 +6,5 @@
 <div class="bilduberschrift">Reinhard Kaiser-Mühlecker</div>
 <div class="bildunterschrift">Foto: ©Jürgen Bauer</div>
 
-<?php makeTimetable(3381); ?>
+<?php makeSidebar(3381); ?>
 
