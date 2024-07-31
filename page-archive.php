@@ -38,7 +38,7 @@ foreach($lecturers as $l) {
   $freq = $l['freq'];
   $lastname = $l['lastname'];
   $link = urlencode(strtolower($name));
-  array_push($output, "    <a href=\"$link\">$name, |||$lastname|||</a><sup>$freq</sup>");
+  array_push($output, "    <a href=\"$link\">$name</a><sup>$freq</sup>");
 }
 echo implode(",\n", $output);
 ?>
