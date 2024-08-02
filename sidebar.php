@@ -9,6 +9,7 @@ $fulltext = ' <img src="' . get_bloginfo('template_directory') . '/images/vollte
 <div class="sidecolumn">
 
 <?php
+// menu or options?
 /*
 $archive = array(
   '2024' => 4510, // Seminar 2024
@@ -16,12 +17,10 @@ $archive = array(
 );
 
 if (is_front_page()) {
-  showImage($archive[0]);
   makeSidebar($archive[0]);
 } else {
   foreach($archive as $year=>$page_id) {
     if (is_page($page_id OR $post->post_parent==$page_id)) {
-      showImage($page_id);
       makeSidebar($page_id);
     }
   }
