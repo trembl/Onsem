@@ -1,32 +1,25 @@
 <?php
-
+/*
 $video = ' <img src="' . get_bloginfo('template_directory') . '/images/video.gif" width="28" height="9">';
 $abstract = ' <img src="' . get_bloginfo('template_directory') . '/images/abstract.gif" width="46" height="9">';
 $fulltext = ' <img src="' . get_bloginfo('template_directory') . '/images/volltext.gif" width="45" height="9">';
-
+*/
 ?>
 
 <div class="sidecolumn">
 
 <?php
-// menu or options?
-/*
-$archive = array(
-  '2024' => 4510, // Seminar 2024
-  '2020' => 3930, // Seminar 2020 Daniel Wisser
-);
 
-if (is_front_page()) {
-  makeSidebar($archive[0]);
-} else {
-  foreach($archive as $year=>$page_id) {
-    if (is_page($page_id OR $post->post_parent==$page_id)) {
-      makeSidebar($page_id);
-    }
+$seminarIDs = getSeminars();
+foreach($seminarIDs as $seminarID) {
+  if (is_front_page() AND (is_page($seminarID) OR ($post->post_parent==$seminarID))) {
+    makeSidebar($seminarID);
+  } elseif (is_page($seminarID) OR ($post->post_parent==$seminarID)) {
+    makeSidebar($seminarID);
   }
 }
-*/
 
+/*
 if (is_front_page() OR is_page('4510') OR $post->post_parent=='4510'):
   makeSidebar(4510);
 
@@ -72,11 +65,11 @@ elseif (is_page('2866') OR $post->post_parent=='2866'):
 
 // Seminar 2013, Herbert J. Wimmer
 elseif (is_page('2449') OR $post->post_parent=='2449'):
-  include("sidebars/sidebar2013.php");
+  makeSidebar(2449);
 
 // Seminar 2012, Doron Rabinovici
 elseif (is_page('2167') OR $post->post_parent=='2167'):
-  include("sidebars/sidebar2012.php");
+  makeSidebar(2167);
 
 // Seminar 2011, Erwin Einzinger
 elseif ( is_page('1750') OR $post->post_parent=='1750'):
@@ -106,6 +99,8 @@ elseif ( is_page('52') OR $post->post_parent=='52' OR $post->post_parent=='280' 
 elseif ( is_page('287') OR $post->post_parent=='287' OR $post->post_parent=='290' ):
   include("sidebars/sidebar2001.php");
 
-endif; ?>
+endif;
+
+*/ ?>
 
 </div><!-- end sidecolumn -->

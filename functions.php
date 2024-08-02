@@ -117,13 +117,13 @@ function showLecture($post_id) {
 
 // Onsem Theme Settings
 function onsem_settings_menus() {
-	add_submenu_page('options-general.php', 'Onsem Twitter', 'Onsem Twitter', 'manage_options', 'onsem-twitter', 'onsem_twitter_settings');
-	add_action( 'admin_init', 'register_onsem_settings' );
+  add_submenu_page('options-general.php', 'Onsem Twitter', 'Onsem Twitter', 'manage_options', 'onsem-twitter', 'onsem_twitter_settings');
+  add_action( 'admin_init', 'register_onsem_settings' );
 }
 
 function register_onsem_settings() {
-	register_setting('onsem-settings-group', 'onsem_twitter_message');
-	register_setting('onsem-settings-group', 'onsem_twitter_hashtag');
+  register_setting('onsem-settings-group', 'onsem_twitter_message');
+  register_setting('onsem-settings-group', 'onsem_twitter_hashtag');
 }
 
 
@@ -134,19 +134,18 @@ function onsem_twitter_settings() {
 <form method="post" action="options.php">
 <?php settings_fields('onsem-settings-group'); ?>
 <?php do_settings_sections('onsem-settings-group'); ?>
-	<table class="form-table">
-		<tr valign="top">
-			<th scope="row">Message</th>
-		<!--  <textarea name="ping_sites" id="ping_sites" class="large-text code" rows="3"></textarea> -->
-			<td><textarea maxlength='100' class="large-text" rows="1" name="onsem_twitter_message"><?php echo get_option('onsem_twitter_message'); ?></textarea></td>
-		</tr>
-
-		<tr valign="top">
-			<th scope="row">Hashtag</th>
-			<td><input type="text" name="onsem_twitter_hashtag" value="<?php echo get_option('onsem_twitter_hashtag'); ?>" /></td>
-		</tr>
-	</table>
-	<?php submit_button(); ?>
+  <table class="form-table">
+    <tr valign="top">
+      <th scope="row">Message</th>
+      <!--  <textarea name="ping_sites" id="ping_sites" class="large-text code" rows="3"></textarea> -->
+      <td><textarea maxlength='100' class="large-text" rows="1" name="onsem_twitter_message"><?php echo get_option('onsem_twitter_message'); ?></textarea></td>
+    </tr>
+    <tr valign="top">
+      <th scope="row">Hashtag</th>
+      <td><input type="text" name="onsem_twitter_hashtag" value="<?php echo get_option('onsem_twitter_hashtag'); ?>" /></td>
+    </tr>
+  </table>
+  <?php submit_button(); ?>
 </form>
 </div>
 <?php }
@@ -346,5 +345,14 @@ function accumulateLecturers() {
   return $lecturersObj;
 }
 
+function getSeminars() {
+  $archiv = get_page_by_path('archiv');
+  $seminare = get_field('seminare', $archiv->ID);
+  $ids = array();
+  foreach($seminare as $s) {
+    array_push($ids, $s['seminar']);
+  }
+  return $ids;
+}
 
 ?>

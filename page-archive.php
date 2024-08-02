@@ -14,14 +14,13 @@ get_header();
   <h2 class="font-medium text-5xl text-center">Seminare</h2>
   <div class="autoren px-8">
 <?php
-$seminare = get_field('seminare');
 
-foreach($seminare as $s) {
-  $seminar = $s['seminar'];
-  $name = get_field('author_name', $seminar->ID);
-  $color = get_field('farbe', $seminar->ID);
-  $year = get_field('jahr', $seminar->ID);
-  $link = get_permalink($seminar->ID);
+$seminarIDs = getSeminars();
+foreach($seminarIDs as $seminarID) {
+  $name = get_field('author_name', $seminarID);
+  $color = get_field('farbe', $seminarID);
+  $year = get_field('jahr', $seminarID);
+  $link = get_permalink($seminarID);
   echo "    <div><a href=\"$link\" style=\"background-color:$color\">$year $name</a></div>\n";
   
 }
