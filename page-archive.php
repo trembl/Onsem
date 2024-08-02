@@ -14,16 +14,18 @@ get_header();
   <h2 class="font-medium text-5xl text-center">Seminare</h2>
   <div class="autoren px-8">
 <?php
-$menuItems = getMenu('authors-menu');
-foreach($menuItems as $menuItem) {
-  $pageId = get_post_meta($menuItem->ID, '_menu_item_object_id', true );   // get id of associated menu page
-  $page = get_post($pageId);
-  $name = get_field('author_name', $pageId);
-  $color = get_field('farbe', $pageId);
-  $year = get_field('jahr', $pageId);
-  $link = get_permalink($pageId);
+$seminare = get_field('seminare');
+
+foreach($seminare as $s) {
+  $seminar = $s['seminar'];
+  $name = get_field('author_name', $seminar->ID);
+  $color = get_field('farbe', $seminar->ID);
+  $year = get_field('jahr', $seminar->ID);
+  $link = get_permalink($seminar->ID);
   echo "    <div><a href=\"$link\" style=\"background-color:$color\">$year $name</a></div>\n";
+  
 }
+
 ?>
   </div>
   

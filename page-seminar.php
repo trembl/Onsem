@@ -17,12 +17,13 @@ get_header(); ?>
 <?php } ?>
 <div id="content">
   <div>
+<?php showImage($post->ID); ?>
 <?php the_markdown_content(); ?>
   </div>
-  <div class="">
+  <div><!-- sidebar -->
 <?php get_sidebar(); ?>
-  </div>
-</div>
+  </div><!-- END sidebar -->
+</div><!-- END content -->
 
 
 <?php get_footer(); ?>

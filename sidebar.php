@@ -29,48 +29,47 @@ if (is_front_page()) {
 */
 
 if (is_front_page() OR is_page('4510') OR $post->post_parent=='4510'):
-  include("sidebars/sidebar2024.php");
+  makeSidebar(4510);
 
 // Seminar 2023 Milena Michiko Flasar
 elseif (is_page('4379') OR $post->post_parent=='4379'):
-  include("sidebars/sidebar2023.php");
+  makeSidebar(4379);
   
 // Seminar 2022 Karl Lubomirski
 elseif (is_page('4289') OR $post->post_parent=='4289'):
-  include("sidebars/sidebar2022.php");
-  
+  makeSidebar(4289);
+
 // Seminar 2021 Julya Rabinowich
 elseif (is_page('4105') OR $post->post_parent=='4105'):
-  include("sidebars/sidebar2021.php");
+  makeSidebar(4105);
   
 // Seminar 2020 Daniel Wisser
 elseif (is_page('3930') OR $post->post_parent=='3930'):
-  showImage(3930);
   makeSidebar(3930);
 
 // Seminar 2019 Thomas Stangle
 elseif (is_page('3688') OR $post->post_parent=='3688'):
-  include("sidebars/sidebar2019.php");
+  makeSidebar(3688);
 
 // Seminar 2018 Raoul Schrott
 elseif (is_page('3560') OR $post->post_parent=='3560'):
-  include("sidebars/sidebar2018.php");
+  makeSidebar(3560);
 
 // Seminar 2017 Reinhard Kaiser-Mühlecker
 elseif (is_page('3381') OR $post->post_parent=='3381'):
-  include("sidebars/sidebar2017.php");
+  makeSidebar(3381);
 
 // Seminar 2016 Clemens J. Setz
 elseif (is_page('3207') OR $post->post_parent=='3207'):
-  include("sidebars/sidebar2016.php");
+  makeSidebar(3207);
 
 // Seminar 2015, Christoph Ransmayr
 elseif (is_page('3077') OR $post->post_parent=='3077'):
-  include("sidebars/sidebar2015.php");
+  makeSidebar(3077);
 
 // Seminar 2014, Sabine Gruber
 elseif (is_page('2866') OR $post->post_parent=='2866'):
-  include("sidebars/sidebar2014.php");
+  makeSidebar(2866);
 
 // Seminar 2013, Herbert J. Wimmer
 elseif (is_page('2449') OR $post->post_parent=='2449'):

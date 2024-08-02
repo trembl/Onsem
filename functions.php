@@ -181,9 +181,11 @@ function makeSidebar($parentID=0) {
   
   // loop
   if($posts) {
-    echo '<h3 class="center">Programm</h3>'."\n";
+    echo '<div class="text-center text-4xl font-medium mb-4">Programm</div>'."\n";
     echo '<table class="schedule">'."\n";
 
+    echo '<tr><td colspan="2" class="text-center italic">Nozawa Onsen</td></tr>'."\n";
+    
     $day = "";
     foreach($posts as $p) {
 
@@ -221,26 +223,33 @@ function showImage($id) {
   $link = $img['sizes']['medium_large'];
 ?>
 
-<a href="<?php the_permalink($id); ?>">
-  <div class="bild">
-    <img src="<?php echo $link; ?>" width="100%" />
-  </div>
-</a>
+  <div class="mb-4">
+    <a href="<?php the_permalink($id); ?>">
+      <img src="<?php echo $link; ?>" class="bild" width="100%" />
+    </a>
 <?php
+  if (get_field('image_credit', $id)) {
+?>
+    <div class="text-sm italic float-right">
+      ©Foto: <?php echo get_field('image_credit', $id); ?>
+
+    </div>
+<?php
+  }
+  
   if (get_field('author_name', $id)) {
 ?>
-<div class="text-sm italic float-right">
-  ©Foto: <?php echo get_field('image_credit', $id); ?>
-</div>
+    <div class="text-sm">
+      <?php echo get_field('author_name', $id); ?>
+
+    </div>
 <?php
   }
 ?>
-<div class="text-sm">
-  <?php echo get_field('author_name', $id); ?>
-</div>
+  </div>
+
 <?php
 }
-
 
 
 function register_onsem_menus() {
@@ -248,7 +257,6 @@ function register_onsem_menus() {
     array(
       'top-menu' => __( 'Top Menu' ),
       'bottom-menu' => __( 'Bottom Menu' ),
-      'authors-menu' => __( 'Authors Menu' ),
      )
    );
  }

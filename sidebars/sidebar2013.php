@@ -1,3 +1,8 @@
+<?php 
+// showImage(2449);
+makeSidebar(2449);
+?>
+
 <a href="<?php echo home_url(); ?>/seminar2013/">
 <div class="bild">
 <img src="<?php echo home_url(); ?>/wp-content/themes/onsem/images/autoren/wimmer.png" width='460' />

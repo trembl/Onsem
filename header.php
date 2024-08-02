@@ -7,16 +7,16 @@
   <style>
 <?php
 if (get_field('farbe')) {
-  echo "body { background: ". get_field('farbe') ."}";
+  echo "#background { background: ". get_field('farbe') ."}";
 } else if (get_field('farbe', $post->post_parent)) {
-  echo "body { background: ". get_field('farbe', $post->post_parent) ."}";
+  echo "#background { background: ". get_field('farbe', $post->post_parent) ."}";
 }
 ?>
-</style>
+  </style>
 
 </head>
 <body class="">
-  <div class="">
+  <div id="background">
     <header>
       <div class="text-lg font-normal px-8 py-1 bg-white text-center">
         Seminar zur österreichischen 🇦🇹 Gegenwartsliteratur in Japan 🇯🇵オーストリア現代文学ゼミナール
