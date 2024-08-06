@@ -22,7 +22,6 @@ foreach($seminarIDs as $seminarID) {
   $year = get_field('jahr', $seminarID);
   $link = get_permalink($seminarID);
   echo "    <div><a href=\"$link\" style=\"background-color:$color\">$year $name</a></div>\n";
-  
 }
 
 ?>
@@ -33,11 +32,11 @@ foreach($seminarIDs as $seminarID) {
 <?php
 
 $lecturers = accumulateLecturers();
+
 $output = array();
 foreach($lecturers as $l) {
   $name = $l['name'];
-  $freq = $l['freq'];
-  $lastname = $l['lastname'];
+  $freq = count($l['ID']);
   $link = urlencode(strtolower($name));
   array_push($output, "    <a href=\"$link\">$name</a><sup>$freq</sup>");
 }

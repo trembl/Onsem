@@ -3,8 +3,6 @@
 Template Name: Lecturer
 */
 
-
-
 // GET lecturer from query
 $lecturer_url = get_query_var('lecturer');
 
@@ -16,31 +14,20 @@ $lecturer = str_replace("-", " - ", $lecturer); // special case: Kaiser-Mühleck
 $lecturer = ucwords($lecturer);
 $lecturer = str_replace(" - ", "-", $lecturer);
 
-
-
-// Check DB for contributions
-$args = array(
-  'order'       => 'ASC',
-  'orderby'     => 'datum_und_uhrzeit',
-  'meta_key'    => 'vortragender',
-  'meta_value'  => $lecturer,
-  'post_type'   => 'page',
-  'post_status' => 'publish'
-); 
-$lectures = get_posts($args);
-
-if (count($lectures) == 0 ) {
+$lecturerObj = accumulateLecturers($lecturer);
+if (count($lecturerObj) == 0 ) {
   http_response_code(404);
   include('404.php');
   die();
 }
+$name = $lecturerObj['name'];
+$count = count($lecturerObj['ID']);
 
 get_header(); 
-
 ?>
 
 <div class="font-medium text-6xl p-8 text-center">
-  <span class="italic"><?php echo $lecturer; ?></span>
+  <span class="italic"><?php echo $name; ?> <sup><?php echo $count; ?></sup></span>
 </div>
 
 <div class="p-8 font-medium text-2xl">
@@ -53,11 +40,22 @@ get_header();
       </tr>
     </thead>
 <?php
-foreach($lectures as $lecture) {
-  $parent = get_post_parent($lecture->ID);
-  $lecturer = get_field('author_name', $parent->ID);
-  $lecturer_link = urlencode(strtolower($lecturer));
 
+$args = array(
+  'post_type'      => 'page',
+  'posts_per_page' => -1,
+  'post__in'       => $lecturerObj['ID'],
+  'meta_key'       => 'datum_und_uhrzeit',
+  'orderby'        => 'meta_value',
+  'order'          => 'ASC'
+);
+$posts = get_posts($args);
+
+
+foreach($posts as $lecture) {
+  $parent = get_post_parent($lecture->ID);
+  $author_name = get_field('author_name', $parent->ID);
+  $author_link = urlencode(strtolower($author_name));
 ?>
     <tbody>
       <tr>
@@ -68,8 +66,8 @@ foreach($lectures as $lecture) {
           </a>
         </td>
         <td>
-          <a href="<?php echo home_url(); ?>/archiv/<?php echo $lecturer_link; ?>">
-            <?php echo $lecturer; ?>
+          <a href="<?php echo home_url(); ?>/archiv/<?php echo $author_link; ?>">
+            <?php echo $author_name; ?>
           </a>
         </td>
         <td>

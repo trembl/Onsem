@@ -86,13 +86,13 @@ elseif ( is_page('134') OR $post->post_parent=='134' OR $post->post_parent=='143
 // Seminar 2008, Peter Waterhouse
 elseif ( is_page('24') OR $post->post_parent=='24' OR $post->post_parent=='29' OR $post->post_parent=='31'):
   include("sidebars/sidebar2008.php");
-  
+ 
 // Seminar 2007, Karl-Markus Gauß
 elseif ( is_page('50') OR $post->post_parent=='50' OR $post->post_parent=='110' OR $post->post_parent=='64'):
   include("sidebars/sidebar2007.php");
-  
+
 // Seminar 2006, Franzobel
-elseif ( is_page('52') OR $post->post_parent=='52' OR $post->post_parent=='280' OR $post->post_parent=='66' ):
+if ( is_page('52') OR $post->post_parent=='52' ):
   include("sidebars/sidebar2006.php");
   
 // Seminar 2001, Robert Menasse
@@ -100,7 +100,8 @@ elseif ( is_page('287') OR $post->post_parent=='287' OR $post->post_parent=='290
   include("sidebars/sidebar2001.php");
 
 endif;
+ */
 
-*/ ?>
+?>
 
 </div><!-- end sidecolumn -->

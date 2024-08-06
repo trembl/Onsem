@@ -1,3 +1,4 @@
+<!--
 <a href="<?php echo home_url(); ?>/seminar2007/">
 <div class="bild ">
 <img src="<?php bloginfo('template_directory'); ?>/images/cutouts/Gauss3.png" width="460" />
@@ -5,9 +6,10 @@
 <div class="bildunterschrift"></div>
 </div>
 </a>
-
+-->
 <div class="programm">
 <table class="schedule">
+  <!--
 <tr><td colspan="2" class="schedule-header">Freitag, 9. November 2007</td></tr>
 <tr><td class="schedule-time">18:00</td><td class="schedule-alt">Eröffnung und Abendessen</td></tr>
 <tr><td class="schedule-time">20:00</td><td><a href="<?php echo home_url(); ?>/seminar2007/gauss-federmair-einfuehrung/" <?php highlight(166); ?>>Karl-Markus Gauß im Gespräch mit Leopold Federmair. Eine Einführung in Dialogform</a></td></tr>
@@ -31,3 +33,4 @@
 <tr><td class="schedule-time">12:15</td><td>Seminarende</td></tr>
 </table>
 </div>
+-->

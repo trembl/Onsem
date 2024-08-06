@@ -1,15 +1,17 @@
+<!--
 <a href="<?php echo home_url(); ?>/seminar2006/">
 <div class="bild ">
 <img src="<?php bloginfo('template_directory'); ?>/images/cutouts/Franzobel2.png" width="460" />
 </div>
 </a>
 <div class="bildunterschrift"></div>
+-->
 
-<?php makeSidebar(52); ?>
 
 
 <div class="programm">
 <table class="schedule">
+  <!--
 <tr><td colspan="2" class="schedule-header">Freitag, 10. November 2006</td></tr>
 <tr><td class="schedule-time">18:00</td><td class="schedule-alt">Abendessen</td></tr>
 <tr><td class="schedule-time">20:00</td><td>Walter Ruprechter: Streiflichter auf Franzobel</td></tr>
@@ -31,5 +33,6 @@
 <tr><td class="schedule-time">anschl.</td><td class="schedule-alt">Statements zu Das Fest der Steine von Yasuko Nunokawa, Shinichi Suzuki, Eberhard Scheiffele mit Publikumsdiskussion</td></tr>
 <tr><td class="schedule-time">11:45</td><td>11.45	Lesung von Franzobel aus Das Fest der Steine.</td></tr>
 <tr><td class="schedule-time">12.15</td><td class="schedule-alt">Ende des Seminars</td></tr>
+-->
 </table>
 </div>

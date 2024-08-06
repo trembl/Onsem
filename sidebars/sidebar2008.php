@@ -8,6 +8,7 @@
 
 <div class="programm">
 <table class="schedule">
+  <!--
 <tr><td colspan="2" class="schedule-header">Freitag, 7. November 2008</td></tr>
 <tr><td class="schedule-time">18:00</td><td class="schedule-alt">Abendessen</td></tr>
 <tr><td class="schedule-time">20:00</td><td>Einführungsvortrag Martin Kubaczek</td></tr>
@@ -23,7 +24,7 @@
 <tr><td class="schedule-time">18:00</td><td class="schedule-alt">Abendessen</td></tr>
 <tr><td class="schedule-time">20:00</td><td>Waterhouse als Übersetzer</td></tr>
 <tr><td class="schedule-time">21:00</td><td class="schedule-alt">Filmporträt Waterhouse</td></tr>
-
+-->
 <tr><td colspan="2" class="schedule-header">Sonntag, 9. November</td></tr>
 <tr><td class="schedule-time">09:30</td><td class="schedule-alt">Waterhouse und die Romantik</td></tr>
 <tr><td class="schedule-time">10:30</td><td><a href="<?php echo home_url(); ?>/seminar2008/waterhouse-zweites-gespraech" <?php highlight(231); ?>><em>Krieg und Welt</em>: Vorstellung und Diskussion</a> Peter Waterhouse<?php echo $video; ?></td></tr>

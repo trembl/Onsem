@@ -310,39 +310,56 @@ function the_markdown_content() {
 }
 
 // Accumulate Lecturers for Archive
-function accumulateLecturers() {
+function accumulateLecturers($fullName="") {
   global $wpdb; 
-  $query  = "SELECT wp_postmeta.meta_value ";
+  $query  = "SELECT wp_postmeta.meta_value, wp_posts.ID ";
   $query .= "FROM wp_posts, wp_postmeta ";
   $query .= "WHERE wp_posts.post_status = 'publish' AND wp_posts.ID = wp_postmeta.post_id AND wp_postmeta.meta_key = 'vortragender' AND NOT wp_postmeta.meta_value = '' ";
   $results = $wpdb->get_results($query);
-  $values = array_values($results);
+  
+  // Make Lecturers unqiue
   $values = array();
   foreach($results as $result) {
-
-    $lecturers = explode(", ", $result->meta_value); // split multiple lecturers by ", "
-    foreach ($lecturers as $lecturer) {
-      array_push($values, $lecturer);
+    $l = array("ID" => $result->ID);
+    if (str_contains($result->meta_value, ",")) {
+      $lecturers = explode(", ", $result->meta_value); // split multiple lecturers by ", "
+      foreach ($lecturers as $lecturer) {
+        $l['lecturer'] = $lecturer;
+        array_push($values, $l);
+      }
+    } else {
+      $l['lecturer'] = $result->meta_value;
+      array_push($values, $l);
     }
   }
-  $lecturers = array_count_values($values);
   
-  $lecturersObj = array();
-  foreach ($lecturers as $lecturer=>$freq) {
-    $name = explode(" ", $lecturer);
-    $l = array(
-      'freq'     => $freq,
-      'name'     => $lecturer,
-      'lastname' => end($name),
-    );
-    array_push($lecturersObj, $l);
+  // Count Lectures/Lectures
+  //[lecturer name] => Array(111,222,333)
+  $unique = array();
+  foreach($values as $v) {
+    if (!array_key_exists($v['lecturer'], $unique)) {
+      $name = explode(" ", $v['lecturer']);
+      $unique[$v['lecturer']] = array(
+        'ID'       => array(),
+        'name'     => $v['lecturer'],
+        'lastname' => end($name),
+      );
+    } 
+    array_push($unique[ $v['lecturer']]['ID'], $v['ID']);
   }
   
-  // sort by last name
-  usort($lecturersObj, function($a, $b) {return strcmp($a['lastname'], $b['lastname']);});
+  // return Lecturer only info, if $fullName is set
+  if ($fullName != "") {
+    if (array_key_exists($fullName, $unique)) {
+      return $unique[$fullName];
+    }
+    return array(); // empty array, when URL is not right
+  }
   
-
-  return $lecturersObj;
+  // ... otherwise sort & return
+  // Sort by last name
+  usort($unique, function($a, $b) {return strcmp($a['lastname'], $b['lastname']);});
+  return $unique;
 }
 
 function getSeminars() {
