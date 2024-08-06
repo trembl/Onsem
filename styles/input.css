@@ -108,8 +108,5 @@
     @apply font-medium text-6xl text-center;
     @apply grid gap-4 grid-cols-1;
   }
-  
-  .wpcf7-form-control {
-    @apply: bg-slate-500 border shadow-md rounded px-8 pt-6 pb-8 mb-4;
-  }
+
 }
