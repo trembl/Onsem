@@ -22,6 +22,6 @@ module.exports = {
     },
   },
   plugins: [],
-  safelist: []
+  safelist: ['form', 'input']
 }
 
