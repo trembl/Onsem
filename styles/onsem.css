@@ -524,15 +524,16 @@ a:active {
 #content {
   padding-left: 2rem;
   padding-right: 2rem;
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+  font-size: 3rem;
   font-weight: 500;
+  line-height: 1.25;
 }
 
 @media (min-width: 1024px) {
   #content {
     font-size: 1.25rem;
     line-height: 1.75rem;
+    line-height: 1;
   }
 }
 
@@ -568,19 +569,12 @@ a:active {
 }
 
 #normal {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+  font-size: 3.75rem;
+  line-height: 1;
   font-weight: 500;
 }
 
-@media (min-width: 640px) {
-  #normal {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-}
-
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   #normal {
     font-size: 1.25rem;
     line-height: 1.75rem;

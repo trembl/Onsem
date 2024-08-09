@@ -47,12 +47,12 @@
 
   #content {
     @apply px-8;
-    @apply font-medium text-4xl lg:text-xl;
+    @apply font-medium text-5xl lg:text-xl leading-tight lg:leading-none;
     @apply grid grid-cols-1 lg:grid-cols-2 gap-8;
   }
   #normal {
     @apply px-8 md:px-24 lg:px-48;
-    @apply font-medium text-4xl sm:text-2xl md:text-xl;
+    @apply font-medium text-6xl lg:text-xl;
   }
   #content p, #normal p {
     @apply mb-5;
