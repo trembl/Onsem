@@ -3,6 +3,7 @@
 <head>
   <title>Onsem - Seminar zur österreichischen Gegenwartsliteratur</title>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="<?php bloginfo('stylesheet_url'); ?>" rel="stylesheet" type="text/css" />
   <style>
 <?php
