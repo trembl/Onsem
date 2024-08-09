@@ -17,15 +17,24 @@ if (get_field('farbe')) {
 
 }
 ?>
-    a, a:visited {
+    #content a, #content a:visited {
       background-color: <?php echo $color; ?>;
+    }
+    #top {
+      background-color: <?php echo $color; ?>;
+    }
+    .menu {
+      background: linear-gradient(<?php echo $color; ?>, #fff);
+    }
+    .menu-bottom {
+      background: linear-gradient(#fff, <?php echo $color; ?>);
     }
   </style>
 </head>
 <body class="">
   <div id="background">
     <header>
-      <div class="text-lg font-normal px-8 py-1 bg-white text-center">
+      <div id="top" class="text-lg font-normal px-8 py-1 text-center">
         Seminar zur österreichischen Gegenwartsliteratur in Japan オーストリア現代文学ゼミナール
       </div>
       <div class="menu">

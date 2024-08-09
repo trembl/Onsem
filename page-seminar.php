@@ -6,7 +6,7 @@ Notes: Author Home Page
 
 get_header(); ?>
 
-<div class="font-medium text-6xl py-8 text-center">
+<div id="title" class="font-medium text-6xl py-8 text-center">
   <a href="<?php echo home_url(); ?>/"><?php the_title(); ?></a> <?php edit_post_link('<sup>✎</sup>');?>
 </div>
 <?php if (is_front_page()) { ?>
