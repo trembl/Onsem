@@ -460,6 +460,10 @@ video {
 
 /* Headers */
 
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
 h1 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -479,16 +483,9 @@ h2 {
 h3 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  font-size: 3rem;
-  line-height: 1;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
   font-weight: 600;
-}
-
-@media (min-width: 768px) {
-  h3 {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
 }
 
 h4 {
@@ -515,16 +512,6 @@ a, a:visited {
   text-underline-offset: 2px;
   text-decoration-color: #000;
   overflow-wrap: break-word;
-}
-
-@media (min-width: 768px) {
-  a, a:visited {
-    overflow-wrap: normal;
-    word-break: normal;
-  }
-}
-
-a, a:visited {
   cursor: pointer;
 }
 
@@ -540,21 +527,28 @@ a:active {
 }
 
 #content {
-  padding-left: 2rem;
-  padding-right: 2rem;
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-  font-weight: 500;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  #content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 @media (min-width: 768px) {
   #content {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
 #content {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 500;
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 2rem;
@@ -586,16 +580,9 @@ a:active {
 }
 
 #normal {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
   font-weight: 500;
-}
-
-@media (min-width: 768px) {
-  #normal {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
 }
 
 #content p, #normal p {
@@ -619,16 +606,23 @@ a:active {
 }
 
 .menu {
-  padding: 2rem;
-  font-size: 3rem;
-  line-height: 1;
+  padding: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .menu {
+    padding: 2rem;
+  }
+}
+
+.menu {
+  font-size: 1.5rem;
+  line-height: 2rem;
   font-weight: 500;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .menu {
-    font-size: 1.5rem;
-    line-height: 2rem;
     display: flex;
     justify-content: space-between;
   }
@@ -976,10 +970,3 @@ tr, td {
 }
 
 /* Tailwind Additional Base Styles */
-
-@media (min-width: 1024px) {
-  .lg\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
-}
