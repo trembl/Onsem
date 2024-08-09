@@ -1,5 +1,7 @@
 # Onsem - WordPress/ClassicPress Theme for onsem.info
 
+Development Site: [https://clients.trembl.org/onsem](https://clients.trembl.org/onsem)
+Updated on every commit.
 
 ## Development Notes
 

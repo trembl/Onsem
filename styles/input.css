@@ -19,7 +19,7 @@
     @apply text-4xl font-semibold py-8;
   }
   h3 {
-    @apply text-3xl font-semibold py-8;
+    @apply text-5xl md:text-3xl font-semibold py-8;
   }
   h4 {
     @apply text-2xl font-semibold py-8;
@@ -33,6 +33,7 @@
     @apply bg-white;
     @apply decoration-2 underline-offset-2;
     @apply decoration-black;
+    @apply break-words md:break-normal;
     cursor: pointer;
   }
   a:hover {
@@ -47,12 +48,12 @@
 
   #content {
     @apply px-8;
-    @apply font-medium text-5xl lg:text-xl leading-tight lg:leading-none;
-    @apply grid grid-cols-1 lg:grid-cols-2 gap-8;
+    @apply font-medium text-3xl md:text-xl;
+    @apply grid grid-cols-1 md:grid-cols-2 gap-8;
   }
   #normal {
     @apply px-8 md:px-24 lg:px-48;
-    @apply font-medium text-6xl lg:text-xl;
+    @apply font-medium text-3xl md:text-xl;
   }
   #content p, #normal p {
     @apply mb-5;
@@ -72,7 +73,7 @@
 
   .menu {
     @apply p-8;
-    @apply font-medium text-5xl sm:text-3xl md:text-2xl;
+    @apply font-medium text-5xl lg:text-2xl;
     @apply lg:flex lg:justify-between;
     @apply bg-gradient-to-b from-white to-transparent;
   }
@@ -81,8 +82,8 @@
     @apply text-center;
   }
   .menu a {
-    @apply block sm:inline;
-    @apply p-2 m-1 sm:p-0;
+    @apply block lg:inline;
+    @apply p-2 m-1 md:p-0;
   }
   .menu-bottom {
     @apply bg-gradient-to-b from-transparent to-white;

@@ -18,7 +18,7 @@ if (get_field('farbe')) {
 <body class="">
   <div id="background">
     <header>
-      <div class="text-lg font-normal px-8 py-1 bg-white text-center">
+      <div class="text-4xl lg:text-lg font-normal px-8 py-1 bg-white text-center">
         Seminar zur österreichischen Gegenwartsliteratur in Japan オーストリア現代文学ゼミナール
       </div>
       <div class="menu">
