@@ -4,13 +4,13 @@
 
 /* Tailwind Additional Base Styles */
 @layer base {
-  
+
   /* Text Selection */
   ::selection {
     color: black;
     background-color: #00ffff;
   }
-  
+
   /* Headers */
   h1 {
     @apply text-6xl font-semibold py-2;
@@ -27,7 +27,7 @@
   h5 {
     @apply text-xl font-semibold py-8;
   }
-  
+
   a, a:visited {
     text-decoration: underline;
     @apply bg-white;
@@ -44,11 +44,11 @@
     background: #00f;
     @apply no-underline;
   }
-  
+
   #content {
     @apply px-8;
     @apply font-medium text-4xl sm:text-2xl md:text-xl;
-    @apply grid grid-cols-1 md:grid-cols-2 gap-8;
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-8;
   }
   #normal {
     @apply px-8 md:px-24 lg:px-48;
@@ -57,13 +57,13 @@
   #content p, #normal p {
     @apply mb-5;
   }
-  
+
   #content li {
-    list-style-type: disc; 
+    list-style-type: disc;
     list-style-position: outside;
     margin-left: 1em;
   }
-  
+
   #content pre { /* seminar2022 */
     @apply bg-gradient-to-b from-white;
     @apply p-4;
@@ -87,7 +87,7 @@
   .menu-bottom {
     @apply bg-gradient-to-b from-transparent to-white;
   }
-  
+
   table.schedule {
     width: 100%;
     font-size: 1em;
@@ -99,11 +99,13 @@
     border: 1px solid black;
     padding: 0.25em;
   }
-  
+
   .bild {
+    /* @apply w-1/2; */
+    @apply w-full;
     @apply grayscale hover:grayscale-0;
   }
-  
+
   .autoren {
     @apply font-medium text-6xl text-center;
     @apply grid gap-4 grid-cols-1;

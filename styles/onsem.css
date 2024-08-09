@@ -549,7 +549,7 @@ a:active {
   gap: 2rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   #content {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -708,6 +708,8 @@ tr, td {
 }
 
 .bild {
+  /* @apply w-1/2; */
+  width: 100%;
   --tw-grayscale: grayscale(100%);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }

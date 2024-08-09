@@ -19,10 +19,10 @@ if (get_field('farbe')) {
   <div id="background">
     <header>
       <div class="text-lg font-normal px-8 py-1 bg-white text-center">
-        Seminar zur österreichischen 🇦🇹 Gegenwartsliteratur in Japan 🇯🇵オーストリア現代文学ゼミナール
+        Seminar zur österreichischen Gegenwartsliteratur in Japan オーストリア現代文学ゼミナール
       </div>
       <div class="menu">
-        <a href="<?php echo home_url(); ?>">♨️ Onsem 📖</a>
+        <a href="<?php echo home_url(); ?>">Onsem</a>
 <?php showMenu('top-menu'); ?>
       </div>
 <?php showBreadcrumbs(); ?>

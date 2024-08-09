@@ -177,14 +177,14 @@ function makeSidebar($parentID=0) {
 
   // make global post ID accessible
   global $post;
-  
+
   // loop
   if($posts) {
     echo '<div class="text-center text-4xl font-medium mb-4">Programm</div>'."\n";
     echo '<table class="schedule">'."\n";
 
     echo '<tr><td colspan="2" class="text-center italic">Nozawa Onsen</td></tr>'."\n";
-    
+
     $day = "";
     foreach($posts as $p) {
 
@@ -224,7 +224,7 @@ function showImage($id) {
 
   <div class="mb-4">
     <a href="<?php the_permalink($id); ?>">
-      <img src="<?php echo $link; ?>" class="bild" width="100%" />
+      <img src="<?php echo $link; ?>" class="bild" />
     </a>
 <?php
   if (get_field('image_credit', $id)) {
@@ -235,7 +235,7 @@ function showImage($id) {
     </div>
 <?php
   }
-  
+
   if (get_field('author_name', $id)) {
 ?>
     <div class="text-sm">
@@ -311,12 +311,12 @@ function the_markdown_content() {
 
 // Accumulate Lecturers for Archive
 function accumulateLecturers($fullName="") {
-  global $wpdb; 
+  global $wpdb;
   $query  = "SELECT wp_postmeta.meta_value, wp_posts.ID ";
   $query .= "FROM wp_posts, wp_postmeta ";
   $query .= "WHERE wp_posts.post_status = 'publish' AND wp_posts.ID = wp_postmeta.post_id AND wp_postmeta.meta_key = 'vortragender' AND NOT wp_postmeta.meta_value = '' ";
   $results = $wpdb->get_results($query);
-  
+
   // Make Lecturers unqiue
   $values = array();
   foreach($results as $result) {
@@ -332,7 +332,7 @@ function accumulateLecturers($fullName="") {
       array_push($values, $l);
     }
   }
-  
+
   // Count Lectures/Lectures
   //[lecturer name] => Array(111,222,333)
   $unique = array();
@@ -344,10 +344,10 @@ function accumulateLecturers($fullName="") {
         'name'     => $v['lecturer'],
         'lastname' => end($name),
       );
-    } 
+    }
     array_push($unique[ $v['lecturer']]['ID'], $v['ID']);
   }
-  
+
   // return Lecturer only info, if $fullName is set
   if ($fullName != "") {
     if (array_key_exists($fullName, $unique)) {
@@ -355,7 +355,7 @@ function accumulateLecturers($fullName="") {
     }
     return array(); // empty array, when URL is not right
   }
-  
+
   // ... otherwise sort & return
   // Sort by last name
   usort($unique, function($a, $b) {return strcmp($a['lastname'], $b['lastname']);});
