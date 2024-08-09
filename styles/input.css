@@ -47,7 +47,7 @@
 
   #content {
     @apply px-8;
-    @apply font-medium text-4xl sm:text-2xl md:text-xl;
+    @apply font-medium text-4xl lg:text-xl;
     @apply grid grid-cols-1 lg:grid-cols-2 gap-8;
   }
   #normal {

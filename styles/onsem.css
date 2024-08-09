@@ -529,14 +529,7 @@ a:active {
   font-weight: 500;
 }
 
-@media (min-width: 640px) {
-  #content {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-}
-
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   #content {
     font-size: 1.25rem;
     line-height: 1.75rem;
