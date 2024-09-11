@@ -874,8 +874,16 @@ tr, td {
   display: inline;
 }
 
+.flex {
+  display: flex;
+}
+
 .table {
   display: table;
+}
+
+.w-1\/6 {
+  width: 16.666667%;
 }
 
 .w-full {
@@ -884,6 +892,14 @@ tr, td {
 
 .table-auto {
   table-layout: auto;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .p-8 {
@@ -912,6 +928,10 @@ tr, td {
 
 .pb-8 {
   padding-bottom: 2rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
 }
 
 .text-center {
