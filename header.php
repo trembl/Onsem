@@ -14,13 +14,14 @@ if (get_field('farbe')) {
 } else if (get_field('farbe', $post->post_parent)) {
   //echo "#background { background: ". get_field('farbe', $post->post_parent) ."}";
   $color = get_field('farbe', $post->post_parent);
+}
 
+$logoLink = get_bloginfo('template_directory') . "/images/logo/onsem_logo_black.png";
+if ($color) {
+  $logoLink = get_bloginfo('template_directory') . "/images/logo/onsem_logo_white.png";
 }
 ?>
-    #content a, #content a:visited {
-      background-color: <?php echo $color; ?>;
-    }
-    #top {
+    #top, #content a, #content a:visited {
       background-color: <?php echo $color; ?>;
     }
     .menu {
@@ -36,6 +37,9 @@ if (get_field('farbe')) {
     <header>
       <div id="top" class="text-lg font-normal px-8 py-1 text-center">
         Seminar zur österreichischen Gegenwartsliteratur in Japan オーストリア現代文学ゼミナール
+        <div class="flex justify-center items-center pt-4">
+          <img class="w-1/6" src="<?php echo $logoLink;?>" />
+        </div>
       </div>
       <div class="menu">
         <a href="<?php echo home_url(); ?>">Onsem</a>
