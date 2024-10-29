@@ -37,10 +37,13 @@ if ($color) {
     <header>
       <div id="top" class="text-lg font-normal px-8 py-1 text-center">
         Seminar zur österreichischen Gegenwartsliteratur in Japan オーストリア現代文学ゼミナール
-        <div class="flex justify-center items-center pt-4">
-          <img class="w-1/6" src="<?php echo $logoLink;?>" />
-        </div>
+        <a href="<?php echo home_url(); ?>">
+          <div class="flex justify-center items-center pt-4">
+            <img class="w-1/6" src="<?php echo $logoLink;?>" />
+          </div>
+        </a>
       </div>
+
       <div class="menu">
         <a href="<?php echo home_url(); ?>">Onsem</a>
 <?php showMenu('top-menu'); ?>
