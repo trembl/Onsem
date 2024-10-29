@@ -179,11 +179,13 @@ function makeSidebar($parentID=0) {
   global $post;
 
   // loop
+  $location = get_field("ort", $parentID);
+  if (empty($location)) $location = "Nozawa Onsen";
+
   if($posts) {
     echo '<div class="text-center text-4xl font-medium mb-4">Programm</div>'."\n";
     echo '<table class="schedule">'."\n";
-
-    echo '<tr><td colspan="2" class="text-center italic">Nozawa Onsen</td></tr>'."\n";
+    echo '<tr><td colspan="2" class="text-center italic">'.$location.'</td></tr>'."\n";
 
     $day = "";
     foreach($posts as $p) {
@@ -256,27 +258,27 @@ function register_onsem_menus() {
     array(
       'top-menu' => __( 'Top Menu' ),
       'bottom-menu' => __( 'Bottom Menu' ),
-     )
-   );
- }
- add_action( 'init', 'register_onsem_menus' );
+    )
+  );
+}
+add_action( 'init', 'register_onsem_menus' );
 
 function getMenu($menuSlug) {
- $l = get_nav_menu_locations();
- $menu = wp_get_nav_menu_items($l[$menuSlug]);
- if (empty($menu)) return array();
- return $menu;
+  $l = get_nav_menu_locations();
+  $menu = wp_get_nav_menu_items($l[$menuSlug]);
+  if (empty($menu)) return array();
+  return $menu;
 }
 
 function showMenu($menuSlug, $class='', $subClass='', $padding='        ') {
- $menuItems = getMenu($menuSlug);
- foreach($menuItems as $menuItem) {
-   $pageId = get_post_meta($menuItem->ID, '_menu_item_object_id', true );   // get id of associated menu page
-   $page = get_post($pageId);
-   $link = get_permalink($page->ID);
-   $c = ($menuItem->menu_item_parent) ? "$class $subClass" : "$class";
-   echo "$padding<a href=\"$link\" class=\"$c\">$menuItem->title</a>\n";
- }
+  $menuItems = getMenu($menuSlug);
+  foreach($menuItems as $menuItem) {
+    $pageId = get_post_meta($menuItem->ID, '_menu_item_object_id', true );   // get id of associated menu page
+    $page = get_post($pageId);
+    $link = get_permalink($page->ID);
+    $c = ($menuItem->menu_item_parent) ? "$class $subClass" : "$class";
+    echo "$padding<a href=\"$link\" class=\"$c\">$menuItem->title</a>\n";
+  }
 }
 
 function showBreadcrumbs() {
