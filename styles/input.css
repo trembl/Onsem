@@ -77,13 +77,16 @@
   #content blockquote {
     @apply text-3xl text-slate-500;
     @apply italic;
-    @apply p-0 m-0;
+  }
+
+  /* overriding #content p */
+  #content blockquote p {
+    @apply mb-0;
   }
 
   #content cite {
     @apply text-lg text-slate-700;
     @apply italic;
-    @apply p-0 m-0;
   }
 
   .menu {
