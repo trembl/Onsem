@@ -3,7 +3,7 @@
   <footer class= >
     <div class="p-8 container mx-auto">
       <div class="text-lg italic text-center">
-        Mit Unterstützung des <a href="https://www.austrocult.jp">Österreichischen Kulturforums Tokio</a> und des <a href="https://oead.at">OEAD</a>.<br />
+        Mit Unterstützung des <a href="https://www.austrocult.jp">Österreichischen Kulturforums Tokio</a> und des <a href="https://oead.at">OeAD</a>.<br />
         <a href="https://www.austrocult.jp"><img class="inline" src="<?php echo bloginfo('template_directory'); ?>/images/okf_horizontal_logotype_digital_black.png" width="350"></a><a href="https://oead.at"><img class="inline" src="<?php echo bloginfo('template_directory'); ?>/images/OeAD_LogoSolo.jpg" width="150"></a>
       </div>
     </div>
