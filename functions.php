@@ -182,7 +182,7 @@ function makeSidebar($parentID=0) {
   $location = get_field("ort", $parentID);
   if (empty($location)) $location = "Nozawa Onsen";
 
-  if($posts) {
+  if ($posts) {
     echo '<div class="text-center text-4xl font-medium mb-4">Programm</div>'."\n";
     echo '<table class="schedule">'."\n";
     echo '<tr><td colspan="2" class="text-center italic">'.$location.'</td></tr>'."\n";
@@ -216,6 +216,9 @@ function makeSidebar($parentID=0) {
       echo '<tr class="'.$h.'"><td class="schedule-time">'. $date->format('H:i') .'</td><td class="schedule">'. $title .'</td></tr>'."\n";
     }
     echo '</table>'."\n";
+    
+  } else {
+    echo '<div class="text-center text-2xl font-medium italic mb-4">Programm in Arbeit</div>'."\n";
   }
 }
 
