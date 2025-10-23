@@ -12,7 +12,7 @@ foreach($seminarIDs as $seminarID) {
     if ($year < 2023) {
 ?>
         Mit Unterstützung des <a href="https://www.austrocult.jp">Österreichischen Kulturforums Tokio</a>
-        und des<a href="https://oead.at">OeAD</a>.
+        und des <a href="https://oead.at">OeAD</a>.
         <br />
         <a href="https://www.austrocult.jp"><img class="inline" src="<?php echo bloginfo('template_directory'); ?>/images/OKF_horizontal_logotype_digital_black_acf.png" width="350"></a>
         <a href="https://oead.at"><img class="inline" src="<?php echo bloginfo('template_directory'); ?>/images/OeAD_LogoSolo.jpg" width="150"></a>
